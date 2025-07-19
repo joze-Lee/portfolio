@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tony | Visionary Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    /* Base Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      transition: color 0.3s ease, background-color 0.3s ease;
+    }
+
+    html,
+    body {
+      scroll-behavior: smooth;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    :root {
+      --bg: #000;
+      --text: #fff;
+      --heading-gradient-start: #00c6ff;
+      --heading-gradient-end: #0072ff;
+      --parallax-bg-start: #1f1f1f;
+      --parallax-bg-end: #000;
+      --content-color: #e0e0e0;
+      --link-hover: #00c6ff;
+    }
+
+    /* Light mode variables */
+    html.light {
+      --bg: #f9f9f9;
+      --text: #111;
+      --heading-gradient-start: #0072ff;
+      --heading-gradient-end: #0072ff;
+      --parallax-bg-start: #cde1f9;
+      --parallax-bg-end: #e6f0ff;
+      --content-color: #333;
+      --link-hover: #0072ff;
+    }
+
+    section {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      padding: 0 1rem;
+      text-align: center;
+    }
+
+    .parallax-bg {
+      position: absolute;
+      top: -10%;
+      left: -10%;
+      width: 120%;
+      height: 120%;
+      background: radial-gradient(circle, var(--parallax-bg-start), var(--parallax-bg-end));
+      z-index: -2;
+      transform: translateZ(-1px) scale(2);
+      animation: bgPulse 20s ease-in-out infinite alternate;
+    }
+
+    @keyframes bgPulse {
+      0% {
+        filter: brightness(1);
+      }
+      50% {
+        filter: brightness(1.2);
+      }
+      100% {
+        filter: brightness(1);
+      }
+    }
+
+    /* Animated Blob Layer */
+    .blob {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle at 40% 40%, #00c6ff55, transparent 70%);
+      border-radius: 50%;
+      filter: blur(80px);
+      transform: translateX(-50%);
+      animation: blobMove 30s ease-in-out infinite;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    @keyframes blobMove {
+      0%,
+      100% {
+        transform: translateX(-50%) translateY(0);
+      }
+      50% {
+        transform: translateX(-50%) translateY(30px);
+      }
+    }
+
+    /* Headings */
+    h1.heading,
+    h2.heading {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      background: linear-gradient(90deg, var(--heading-gradient-start), var(--heading-gradient-end));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+      cursor: default;
+      user-select: none;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    /* Hover scale and glow effect for headings */
+    h1.heading:hover,
+    h2.heading:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 6px var(--heading-gradient-end));
+    }
+
+    p.content {
+      max-width: 800px;
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      color: var(--content-color);
+      line-height: 1.6;
+      user-select: text;
+    }
+
+    /* Links in last section styled as buttons */
+    .contact-links {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .contact-links a {
+      color: var(--content-color);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.4rem 1rem;
+      border: 1.5px solid var(--content-color);
+      border-radius: 30px;
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .contact-links a:hover {
+      background-color: var(--link-hover);
+      color: #fff;
+      box-shadow: 0 0 10px var(--link-hover);
+    }
+
+    /* Scroll Path SVG */
+    svg.path {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Dark/light toggle button */
+    #mode-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: transparent;
+      border: 2px solid var(--content-color);
+      color: var(--content-color);
+      font-weight: 700;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      z-index: 10;
+    }
+
+    #mode-toggle:hover {
+      background-color: var(--link-hover);
+      color: #fff;
+      border-color: var(--link-hover);
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 768px) {
+      h1.heading,
+      h2.heading {
+        font-size: clamp(2rem, 6vw, 2.8rem);
+      }
+
+      p.content {
+        font-size: clamp(0.9rem, 3vw, 1.1rem);
+        max-width: 90vw;
+      }
+
+      .blob {
+        width: 300px;
+        height: 300px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1.heading,
+      h2.heading {
+        font-size: clamp(1.6rem, 7vw, 2.2rem);
+      }
+
+      p.content {
+        font-size: clamp(0.8rem, 4vw, 1rem);
+      }
+
+      .contact-links {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Dark/Light Mode Toggle -->
+  <button id="mode-toggle" aria-label="Toggle dark/light mode">Light Mode</button>
+
+  <!-- Scroll Path (for illustration) -->
+  <svg class="path" aria-hidden="true">
+    <path d="M0,0 Q300,300 600,100 Q900,300 1200,100 Q1500,400 1800,200" stroke="#00f0ff33" stroke-width="4" fill="none" />
+  </svg>
+
+  <!-- Animated blob background -->
+  <div class="blob" aria-hidden="true"></div>
+
+  <section>
+    <div class="parallax-bg"></div>
+    <h1 class="heading">Panimaya Joseph Jesuraja</h1>
+    <p class="content">Back-End Engineer | AI Specialist | Visionary Developer</p>
+  </section>
+
+  <section>
+    <div class="parallax-bg"></div>
+    <h2 class="heading">About Me</h2>
+    <p class="content">MSc AI from UEL | 6.5+ years backend expertise | AI-powered solutions enthusiast | Educator & Mentor.</p>
+  </section>
+
+  <section>
+    <div class="parallax-bg"></div>
+    <h2 class="heading">Key Skills</h2>
+    <p class="content">Python, Node.js, SQL/NoSQL, REST APIs, TensorFlow, PyTorch, CNNs, RAG, FastAPI, Gradio, Azure</p>
+  </section>
+
+  <section>
+    <div class="parallax-bg"></div>
+    <h2 class="heading">Project Athena</h2>
+    <p class="content">AI Assistant for scholars with PDF ingestion, RAG, Hugging Face LLMs, FAISS, and Gradio UI.</p>
+  </section>
+
+  <section>
+    <div class="parallax-bg"></div>
+    <h2 class="heading">Retinal Disease Detection</h2>
+    <p class="content">CNN-based DR detector using preprocessing techniques like CLAHE, circle cropping, unsharp masking.</p>
+  </section>
+
+  <section>
+    <div class="parallax-bg"></div>
+    <h2 class="heading">Let’s Connect</h2>
+    <div class="contact-links">
+      <a href="mailto:tony@example.com" target="_blank" rel="noopener noreferrer">Email: tony@example.com</a>
+      <a href="https://linkedin.com/in/panimaya-joseph" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/tonydev" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // GSAP scroll animations for headings and content
+    document.querySelectorAll('section').forEach((section, index) => {
+      const heading = section.querySelector('.heading');
+      const content = section.querySelector('.content');
+
+      const directions = ["x", "y", "x", "y", "x", "y"];
+      const values = [150, 100, -150, -100, 150, 100];
+
+      gsap.fromTo(heading, {
+        [directions[index % directions.length]]: values[index % values.length],
+        opacity: 0
+      }, {
+        [directions[index % directions.length]]: 0,
+        opacity: 1,
+        duration: 1.2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: section,
+          start: "top 75%",
+          toggleActions: "play none none reverse"
+        }
+      });
+
+      gsap.fromTo(content, {
+        y: 80,
+        opacity: 0
+      }, {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        delay: 0.4,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: section,
+          start: "top 65%",
+          toggleActions: "play none none reverse"
+        }
+      });
+    });
+
+    // Dark/light mode toggle logic
+    const toggleBtn = document.getElementById('mode-toggle');
+    const rootElement = document.documentElement;
+
+    // Load saved mode or default to dark
+    const savedMode = localStorage.getItem('mode') || 'dark';
+    if (savedMode === 'light') {
+      rootElement.classList.add('light');
+      toggleBtn.textContent = 'Dark Mode';
+    } else {
+      toggleBtn.textContent = 'Light Mode';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      rootElement.classList.toggle('light');
+      const isLight = rootElement.classList.contains('light');
+      toggleBtn.textContent = isLight ? 'Dark Mode' : 'Light Mode';
+      localStorage.setItem('mode', isLight ? 'light' : 'dark');
+    });
+  </script>
+</body>
+
+</html>
