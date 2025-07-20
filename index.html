@@ -30,16 +30,17 @@
     :root {
       --bg: #000;
       --text: #fff;
-      --heading-gradient-start: #00c6ff;
-      --heading-gradient-end: #0072ff;
+      --heading-gradient-start: #00ffff;
+      --heading-gradient-end: #a336c4;
       --parallax-bg-start: #1f1f1f;
       --parallax-bg-end: #000;
       --content-color: #e0e0e0;
-      --link-hover: #00c6ff;
+      --link-hover: #a336c4;
       --card-bg: #111;
-      --card-hover-bg: #0072ff;
+      --card-hover-bg: #a336c4;
       --card-text: #ddd;
       --card-hover-text: #fff;
+      --card-hover-gradient: linear-gradient(135deg, #00ffff, #a336c4);
     }
     
 
@@ -113,10 +114,10 @@
 
     .project-card:hover,
     .project-card:focus {
-      background-color: var(--card-hover-bg);
+      background: var(--card-hover-gradient);
       color: var(--card-hover-text);
       transform: scale(1.05);
-      box-shadow: 0 0 20px var(--card-hover-bg);
+      box-shadow: 0 0 20px var(--card-hover-gradient);
       outline: none;
     }
 
@@ -382,27 +383,25 @@
   <div class="wave-container" aria-hidden="true">
     <svg class="wave" viewBox="0 0 1800 130" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <linearGradient id="rainbowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#ff00cc" />
-          <stop offset="25%" stop-color="#00ffff" />
-          <stop offset="50%" stop-color="#00ff00" />
-          <stop offset="75%" stop-color="#ffcc00" />
-          <stop offset="100%" stop-color="#ff0000" />
+        <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#00ffff" />
+          <stop offset="100%" stop-color="#a336c4" />
         </linearGradient>
         <filter id="glow2" x="-40%" y="-40%" width="180%" height="180%">
-          <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#ff00cc" flood-opacity="0.7"/>
-          <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#00ffff" flood-opacity="0.5"/>
+          <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#00ffff" flood-opacity="0.6"/>
+          <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#a336c4" flood-opacity="0.4"/>
         </filter>
       </defs>
       <path 
         d="M0,70 Q300,10 600,70 Q900,130 1200,70 Q1500,10 1800,70" 
-        stroke="url(#rainbowGradient)" 
+        stroke="url(#waveGradient)" 
         stroke-width="7" 
         fill="none" 
         filter="url(#glow2)"
       />
     </svg>
   </div>
+  
   
   
 
