@@ -18,6 +18,7 @@
 
     html,
     body {
+      scroll-padding-top: 80px;
       scroll-behavior: smooth;
       font-family: 'Inter', sans-serif;
       background-color: var(--bg);
@@ -55,14 +56,16 @@
     }
 
     section {
+      padding-top: 4rem; 
       position: relative;
       width: 100vw;
-      height: 100vh;
+      /* height: 100vh; */
+      min-height: 100vh; 
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      overflow: hidden;
+      /* overflow: hidden; */
       padding: 0 1rem;
       text-align: center;
     }
@@ -167,18 +170,52 @@
         transform: translateX(-50%) translateY(30px);
       }
     }
+    
+    .github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  background: linear-gradient(90deg, var(--heading-gradient-start), var(--heading-gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+  transition: opacity 0.3s ease;
+}
+
+.github-icon {
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  background: linear-gradient(90deg, var(--heading-gradient-start), var(--heading-gradient-end));
+  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.26.82-.577v-2.234c-3.338.725-4.033-1.415-4.033-1.415-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.082-.73.082-.73 1.205.085 1.84 1.236 1.84 1.236 1.07 1.835 2.807 1.305 3.492.997.108-.775.418-1.305.76-1.605-2.665-.305-5.467-1.332-5.467-5.93 0-1.31.467-2.38 1.235-3.22-.123-.303-.535-1.527.117-3.176 0 0 1.005-.322 3.3 1.23a11.52 11.52 0 0 1 3-.405c1.02.005 2.045.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.655 1.65.243 2.873.12 3.176.77.84 1.23 1.91 1.23 3.22 0 4.61-2.807 5.625-5.48 5.92.43.37.823 1.102.823 2.222v3.293c0 .32.215.694.825.576C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>');
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  -webkit-mask-position: center;
+  mask-image: inherit;
+  background-clip: border-box;
+}
+
+.github-link:hover {
+  opacity: 0.8;
+}
+
+
 
     /* Headings */
     h1.heading,
     h2.heading {
       font-size: clamp(2.5rem, 5vw, 3.5rem);
       background: linear-gradient(90deg, var(--heading-gradient-start), var(--heading-gradient-end));
-      -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
       margin-bottom: 1rem;
       cursor: default;
       user-select: none;
       transition: transform 0.3s ease, filter 0.3s ease;
+      margin-top: 4rem;
     }
 
     /* Hover scale and glow effect for headings */
@@ -269,7 +306,8 @@
     @media (max-width: 768px) {
       h1.heading,
       h2.heading {
-        font-size: clamp(2rem, 6vw, 2.8rem);
+        margin-top: 2rem; 
+        font-size: clamp(1.8rem, 6vw, 2.4rem);
       }
 
       p.content {
@@ -286,9 +324,10 @@
         gap: 1rem;
       }
       .project-card {
-        width: 45vw;
-        padding: 1rem 1.2rem;
+        width: 90vw;
+        /* padding: 1rem 1.2rem; */
       }
+   
     }
 
     @media (max-width: 480px) {
@@ -296,7 +335,9 @@
       h2.heading {
         font-size: clamp(1.6rem, 7vw, 2.2rem);
       }
-
+      
+      
+       
       p.content {
         font-size: clamp(0.8rem, 4vw, 1rem);
       }
@@ -307,7 +348,9 @@
       .project-card {
         width: 90vw;
       }
-    }
+    
+  }
+    
   </style>
 </head>
 
@@ -316,9 +359,52 @@
   <button id="mode-toggle" aria-label="Toggle dark/light mode">Light Mode</button>
 
   <!-- Scroll Path (for illustration) -->
-  <svg class="path" aria-hidden="true">
+  <!-- <svg class="path" aria-hidden="true">
     <path d="M0,0 Q300,300 600,100 Q900,300 1200,100 Q1500,400 1800,200" stroke="#00f0ff33" stroke-width="4" fill="none" />
-  </svg>
+  </svg> -->
+  <style>
+    .wave-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 130px;
+      pointer-events: none;
+      z-index: 1000;
+    }
+    svg.wave {
+      display: block;
+      width: 100%;
+      height: 130px;
+    }
+  </style>
+  
+  <div class="wave-container" aria-hidden="true">
+    <svg class="wave" viewBox="0 0 1800 130" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="rainbowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#ff00cc" />
+          <stop offset="25%" stop-color="#00ffff" />
+          <stop offset="50%" stop-color="#00ff00" />
+          <stop offset="75%" stop-color="#ffcc00" />
+          <stop offset="100%" stop-color="#ff0000" />
+        </linearGradient>
+        <filter id="glow2" x="-40%" y="-40%" width="180%" height="180%">
+          <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#ff00cc" flood-opacity="0.7"/>
+          <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#00ffff" flood-opacity="0.5"/>
+        </filter>
+      </defs>
+      <path 
+        d="M0,70 Q300,10 600,70 Q900,130 1200,70 Q1500,10 1800,70" 
+        stroke="url(#rainbowGradient)" 
+        stroke-width="7" 
+        fill="none" 
+        filter="url(#glow2)"
+      />
+    </svg>
+  </div>
+  
+  
 
   <!-- Animated blob background -->
   <div class="blob" aria-hidden="true"></div>
@@ -334,14 +420,15 @@
     <h2 class="heading">About Me</h2>
     <!-- <p class="content">MSc AI from UEL | 6.5+ years backend expertise | AI-powered solutions enthusiast | Educator & Mentor.</p> -->
     <p class="content-about">
-      I’m a seasoned back-end developer turned AI engineer, with years of experience designing and building scalable systems using <strong>Node.js</strong>, <strong>Python</strong>, and <strong>microservices architectures</strong>. I've led engineering teams, reduced API response times by 15%, and mentored junior developers to consistently deliver clean, maintainable code.
-   
-      Currently pursuing an <strong>MSc in Artificial Intelligence</strong> at the University of East London, I'm achieving distinction-level scores (91%, 94%) in core modules while focusing on practical applications of machine learning and deep learning. My expertise spans across <strong>LLM-based solutions</strong>, <strong>RAG pipelines</strong>, and intelligent AI agents using <strong>TensorFlow</strong>, <strong>PyTorch</strong>, and <strong>Hugging Face</strong>.
-   
-      I’m the creator of <strong>Athena</strong>—an AI-powered research assistant capable of parsing PDFs, performing vector search via <strong>FAISS</strong>, and enabling context-aware conversations through <strong>RAG-based workflows</strong> and open-source LLMs. I’ve deployed models on <strong>AWS</strong> and <strong>Azure</strong>, and built strong foundations in <strong>MLOps</strong> using CI/CD pipelines and cloud-native tools.
-   
-      Whether it's building intelligent systems that scale, collaborating in cross-functional teams, or mentoring the next generation of engineers, I thrive in fast-paced environments and bring a mix of technical depth, leadership, and a passion for problem-solving.
-    </p>
+      I’m a seasoned back-end developer turned AI engineer with years of experience designing and deploying scalable systems using Node.js, Python, and microservices. I’ve led engineering teams, reduced API response times by 15%, and mentored junior developers to consistently write clean, efficient code.
+
+      Currently pursuing an MSc in Artificial Intelligence at the University of East London, I’m achieving distinction-level scores (91%, 94%) while focusing on practical applications of machine learning and deep learning. My work spans LLM-based solutions, RAG pipelines, and intelligent AI agents using TensorFlow, PyTorch, and Hugging Face.
+
+      I’m the creator of Athena, an AI-powered research assistant capable of parsing PDFs, performing vector search with FAISS, and enabling context-aware Q&A through RAG workflows and open-source LLMs. I have deployed models to production on AWS and Azure, and have built CI/CD pipelines for reliable ML operations using Docker, GitHub Actions, and other MLOps tools.
+
+      I thrive in startup-like, fast-paced environments, enjoy working in cross-functional teams, and take pride in mentoring others. My approach blends technical expertise, leadership, and a deep passion for solving real-world problems using AI.
+     
+</p>
   </section>
 
   <section>
@@ -353,49 +440,54 @@
   <section>
     <div class="parallax-bg"></div>
     <h2 class="heading">Project Athena</h2>
-    <p class="content">AI Assistant for scholars with PDF ingestion, RAG, Hugging Face LLMs, FAISS, and Gradio UI.</p>
+    <p class="content"> Developed a multimodal AI assistant for research scholars that ingests, processes, and interacts with scientific PDFs using state-of-the-art NLP techniques and Large Language Models (LLMs). Built an end-to-end pipeline including PDF parsing, text chunking, embedding generation with Hugging Face models, and retrieval-augmented generation (RAG) for context-aware responses. The system will feature a FastAPI backend, an interactive Gradio UI, containerized deployment on Azure, and include advanced features like summarization and source referencing, showcasing expertise in Python, FAISS vector search, transformer models, and cloud deployment.Developing a multimodal AI assistant for research scholars that ingests, processes, and interacts with scientific PDFs using state-of-the-art NLP techniques and Large Language Models (LLMs). Building an end-to-end pipeline including PDF parsing, text chunking, embedding generation with Hugging Face models, and retrieval-augmented generation (RAG) for context-aware responses. The system will feature a FastAPI backend, an interactive Gradio UI, containerized deployment on Azure, and include advanced features like summarization and source referencing, showcasing expertise in Python, FAISS vector search, transformer models, and cloud deployment.
+      <!-- <br><br> -->
+      <a href="https://github.com/joze-Lee/Athena" target="_blank" class="github-link">
+        <svg class="github-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.26.82-.577v-2.234c-3.338.725-4.033-1.415-4.033-1.415-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.082-.73.082-.73 1.205.085 1.84 1.236 1.84 1.236 1.07 1.835 2.807 1.305 3.492.997.108-.775.418-1.305.76-1.605-2.665-.305-5.467-1.332-5.467-5.93 0-1.31.467-2.38 1.235-3.22-.123-.303-.535-1.527.117-3.176 0 0 1.005-.322 3.3 1.23a11.52 11.52 0 0 1 3-.405c1.02.005 2.045.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.655 1.65.243 2.873.12 3.176.77.84 1.23 1.91 1.23 3.22 0 4.61-2.807 5.625-5.48 5.92.43.37.823 1.102.823 2.222v3.293c0 .32.215.694.825.576C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/>
+        </svg>
+        <span class="github-text"></span>
+      </a>
   </section>
 
-   <!-- Projects Section -->
-   <section id="projects">
-    <div class="parallax-bg"></div>
-    <h2 class="heading">Projects</h2>
-    <!-- <p class="content">"podaaa"</p> -->
-    
-    <div class="projects-container" role="list">
-      <a href="https://github.com/yourusername/project1" target="_blank" rel="noopener noreferrer" class="project-card" role="listitem" tabindex="0" aria-label="Project 1: Awesome Portfolio Website">
-        <div class="project-title">Awesome Portfolio Website</div>
-        <div class="project-desc">A responsive, animated portfolio showcasing my skills and projects with modern web tech.</div>
-      </a>
-      <a href="https://github.com/yourusername/project2" target="_blank" rel="noopener noreferrer" class="project-card" role="listitem" tabindex="0" aria-label="Project 2: Real-Time Chat App">
-        <div class="project-title">Real-Time Chat App</div>
-        <div class="project-desc">Built with Node.js and Socket.io for seamless real-time messaging and notifications.</div>
-      </a>
-      <a href="https://github.com/yourusername/project3" target="_blank" rel="noopener noreferrer" class="project-card" role="listitem" tabindex="0" aria-label="Project 3: AI Image Classifier">
-        <div class="project-title">AI Image Classifier</div>
-        <div class="project-desc">A deep learning project to classify images with TensorFlow and Keras, achieving high accuracy.</div>
-      </a>
-      <a href="https://github.com/yourusername/project3" target="_blank" rel="noopener noreferrer" class="project-card" role="listitem" tabindex="0" aria-label="Project 3: AI Image Classifier">
-        <div class="project-title">AI Image Classifier</div>
-        <div class="project-desc">A deep learning project to classify images with TensorFlow and Keras, achieving high accuracy.</div>
-      </a>
-      <a href="https://github.com/yourusername/project3" target="_blank" rel="noopener noreferrer" class="project-card" role="listitem" tabindex="0" aria-label="Project 3: AI Image Classifier">
-        <div class="project-title">AI Image Classifier</div>
-        <div class="project-desc">A deep learning project to classify images with TensorFlow and Keras, achieving high accuracy.</div>
-      </a>
-      <a href="https://github.com/yourusername/project3" target="_blank" rel="noopener noreferrer" class="project-card" role="listitem" tabindex="0" aria-label="Project 3: AI Image Classifier">
-        <div class="project-title">AI Image Classifier</div>
-        <div class="project-desc">A deep learning project to classify images with TensorFlow and Keras, achieving high accuracy.</div>
-      </a>
-      
-    </div>
   
-  </section>
 
   <section>
     <div class="parallax-bg"></div>
     <h2 class="heading">Retinal Disease Detection</h2>
-    <p class="content">CNN-based DR detector using preprocessing techniques like CLAHE, circle cropping, unsharp masking.</p>
+    <p class="content">Diabetic retinopathy (DR) is a leading cause of blindness worldwide, especially among individuals with diabetes. Early detection is vital for timely treatment and preventing vision loss. However, manual screening of retinal images is time-consuming and prone to human error. This study explores the use of deep learning, specifically Convolutional Neural Networks (CNNs), for automated DR detection in retinal fundus images. Using a publicly available dataset of 5,593 labeled images, we train a CNN-based model to classify DR into five severity levels.
+
+      To enhance model performance, advanced preprocessing techniques such as unsharp masking, contrast enhancement, and circle cropping are applied. The model is evaluated using metrics like precision, accuracy, F1-score, and recall, demonstrating the potential of deep learning for reliable and scalable DR screening.
+      
+      This approach offers a promising solution to reduce the burden on healthcare professionals and improve access to timely care. Additionally, the study discusses challenges such as class imbalance and dataset noise, and suggests ways to improve model generalization and robustness in future work.</p>
+  </section>
+   <!-- Projects Section -->
+   <section id="projects">
+    <div class="parallax-bg"></div>
+    <h2 class="heading">Selected Projects</h2>
+    <!-- <p class="content">"podaaa"</p> -->
+    
+    <div class="projects-container" role="list">
+      <a href="https://github.com/joze-Lee/Athena" target="_blank" rel="noopener noreferrer" class="project-card" role="listitem" tabindex="0" aria-label="Project 1: Awesome Portfolio Website">
+        <div class="project-title">Project Athena </div>
+        <div class="project-desc"> AI-Powered Research Assistant for Scholars</div>
+      </a>
+      <a href="https://github.com/joze-Lee/retina-risk-ai" target="_blank" rel="noopener noreferrer" class="project-card" role="listitem" tabindex="0" aria-label="Project 2: Real-Time Chat App">
+        <div class="project-title">Diabetic retinopathy</div>
+        <div class="project-desc">AI-driven retinal disease detection leveraging advanced preprocessing</div>
+      </a>
+      <a href="https://github.com/yourusername/project3" target="_blank" rel="noopener noreferrer" class="project-card" role="listitem" tabindex="0" aria-label="Project 3: AI Image Classifier">
+        <div class="project-title">AI Image Classifier</div>
+        <div class="project-desc">A deep learning project to classify images with TensorFlow and Keras, achieving high accuracy.</div>
+      </a>
+      <a href="https://github.com/yourusername/project3" target="_blank" rel="noopener noreferrer" class="project-card" role="listitem" tabindex="0" aria-label="Project 3: AI Image Classifier">
+        <div class="project-title">AI Image Classifier</div>
+        <div class="project-desc">A deep learning project to classify images with TensorFlow and Keras, achieving high accuracy.</div>
+      </a>
+     
+      
+    </div>
+  
   </section>
 
   <section>
@@ -473,6 +565,8 @@
       localStorage.setItem('mode', isLight ? 'light' : 'dark');
     });
   </script>
+
+  
 </body>
 
 </html>
