@@ -15,6 +15,7 @@
       transition: color 0.3s ease, background-color 0.3s ease;
     }
 
+
     html,
     body {
       scroll-behavior: smooth;
@@ -34,7 +35,12 @@
       --parallax-bg-end: #000;
       --content-color: #e0e0e0;
       --link-hover: #00c6ff;
+      --card-bg: #111;
+      --card-hover-bg: #0072ff;
+      --card-text: #ddd;
+      --card-hover-text: #fff;
     }
+    
 
     /* Light mode variables */
     html.light {
@@ -71,6 +77,57 @@
       z-index: -2;
       transform: translateZ(-1px) scale(2);
       animation: bgPulse 20s ease-in-out infinite alternate;
+    }
+    /* Projects Section */
+    .projects-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      max-width: 100%;
+      margin-top: 1rem;
+      padding: 0 1rem;
+      user-select: none;
+    }
+
+    
+
+    .project-card {
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: 0 0 8px #0008;
+      padding: 1.5rem 2rem;
+      width: 280px;
+      color: var(--card-text);
+      cursor: pointer;
+      text-align: left;
+      transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none;
+    }
+
+    .project-card:hover,
+    .project-card:focus {
+      background-color: var(--card-hover-bg);
+      color: var(--card-hover-text);
+      transform: scale(1.05);
+      box-shadow: 0 0 20px var(--card-hover-bg);
+      outline: none;
+    }
+
+    .project-title {
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-desc {
+      font-weight: 400;
+      font-size: 1rem;
+      flex-grow: 1;
+      line-height: 1.4;
     }
 
     @keyframes bgPulse {
@@ -215,6 +272,10 @@
         width: 300px;
         height: 300px;
       }
+      .project-card {
+        width: 45vw;
+        padding: 1rem 1.2rem;
+      }
     }
 
     @media (max-width: 480px) {
@@ -229,6 +290,9 @@
 
       .contact-links {
         flex-direction: column;
+      }
+      .project-card {
+        width: 90vw;
       }
     }
   </style>
@@ -268,6 +332,42 @@
     <div class="parallax-bg"></div>
     <h2 class="heading">Project Athena</h2>
     <p class="content">AI Assistant for scholars with PDF ingestion, RAG, Hugging Face LLMs, FAISS, and Gradio UI.</p>
+  </section>
+
+   <!-- Projects Section -->
+   <section id="projects">
+    <div class="parallax-bg"></div>
+    <h2 class="heading">Projects</h2>
+    <!-- <p class="content">"podaaa"</p> -->
+    
+    <div class="projects-container" role="list">
+      <a href="https://github.com/yourusername/project1" target="_blank" rel="noopener noreferrer" class="project-card" role="listitem" tabindex="0" aria-label="Project 1: Awesome Portfolio Website">
+        <div class="project-title">Awesome Portfolio Website</div>
+        <div class="project-desc">A responsive, animated portfolio showcasing my skills and projects with modern web tech.</div>
+      </a>
+      <a href="https://github.com/yourusername/project2" target="_blank" rel="noopener noreferrer" class="project-card" role="listitem" tabindex="0" aria-label="Project 2: Real-Time Chat App">
+        <div class="project-title">Real-Time Chat App</div>
+        <div class="project-desc">Built with Node.js and Socket.io for seamless real-time messaging and notifications.</div>
+      </a>
+      <a href="https://github.com/yourusername/project3" target="_blank" rel="noopener noreferrer" class="project-card" role="listitem" tabindex="0" aria-label="Project 3: AI Image Classifier">
+        <div class="project-title">AI Image Classifier</div>
+        <div class="project-desc">A deep learning project to classify images with TensorFlow and Keras, achieving high accuracy.</div>
+      </a>
+      <a href="https://github.com/yourusername/project3" target="_blank" rel="noopener noreferrer" class="project-card" role="listitem" tabindex="0" aria-label="Project 3: AI Image Classifier">
+        <div class="project-title">AI Image Classifier</div>
+        <div class="project-desc">A deep learning project to classify images with TensorFlow and Keras, achieving high accuracy.</div>
+      </a>
+      <a href="https://github.com/yourusername/project3" target="_blank" rel="noopener noreferrer" class="project-card" role="listitem" tabindex="0" aria-label="Project 3: AI Image Classifier">
+        <div class="project-title">AI Image Classifier</div>
+        <div class="project-desc">A deep learning project to classify images with TensorFlow and Keras, achieving high accuracy.</div>
+      </a>
+      <a href="https://github.com/yourusername/project3" target="_blank" rel="noopener noreferrer" class="project-card" role="listitem" tabindex="0" aria-label="Project 3: AI Image Classifier">
+        <div class="project-title">AI Image Classifier</div>
+        <div class="project-desc">A deep learning project to classify images with TensorFlow and Keras, achieving high accuracy.</div>
+      </a>
+      
+    </div>
+  
   </section>
 
   <section>
