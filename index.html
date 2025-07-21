@@ -133,17 +133,20 @@
     }
 
     .project-title {
+      /* background: linear-gradient(90deg, var(--heading-gradient-start), var(--heading-gradient-end));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; */
       font-weight: 700;
       font-size: 1.3rem;
       margin-bottom: 0.5rem;
     }
 
-    .project-desc {
+    /* .project-desc {
       font-weight: 400;
       font-size: 1rem;
       flex-grow: 1;
       line-height: 1.4;
-    }
+    } */
 
     @keyframes bgPulse {
       0% {
@@ -267,7 +270,13 @@
       color: var(--content-color);
       line-height: 1.6;
       user-select: text;
-      text-align: justify;
+      text-align: center;
+    }
+    .project-desc {
+      font-weight: 400;
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      flex-grow: 1;
+      line-height: 1.6;
     }
 
     p.content-about {
@@ -276,7 +285,7 @@
       color: var(--content-color);
       line-height: 1.6;
       user-select: text;
-      text-align: justify;
+      text-align: center;
     }
     /* Links in last section styled as buttons */
 .contact-links a {
@@ -383,7 +392,10 @@
       
        
       p.content {
-        font-size: clamp(0.8rem, 4vw, 1rem);
+        font-size: clamp(0.8rem, 3vw, 1rem);
+      }
+      p.content-about{
+        font-size: clamp(0.8rem, 3vw, 1rem);
       }
 
       .contact-links {
@@ -392,6 +404,10 @@
       .project-card {
         width: 90vw;
       }
+      .project-desc {
+      font-size: clamp(0.8rem, 3vw, 1rem);
+    }
+
     
   }
     
