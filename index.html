@@ -265,6 +265,18 @@
       filter: drop-shadow(0 0 6px var(--heading-gradient-end));
     }
 
+    p.sub-content{
+      max-width: 1000px;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  background: var(--card-hover-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; /* for Firefox */
+  color: transparent;
+  line-height: 1.6;
+  user-select: text;
+  text-align: center;
+    }
     p.content {
       max-width: 1000px;
       font-size: clamp(1rem, 2vw, 1.3rem);
@@ -320,6 +332,46 @@
   border: none; 
 }
 
+
+.research-links a {
+  
+
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 30px;
+  background: none;
+  cursor: pointer;
+
+  /* No gradient in normal state */
+  background-clip: unset;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  text-fill-color: unset;
+  transition: color 0.3s ease;
+}
+
+.research-links a:hover {
+   /* Gradient text on hover */
+   background: var(--card-hover-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+  color: unset;
+  box-shadow: none;
+  background-color: none;
+  border: none; 
+
+
+ 
+}
+.small-break {
+  display: block;
+  margin-top: 7px; /* Adjust as needed */
+}
 
 
     /* Scroll Path SVG */
@@ -402,9 +454,10 @@
         font-size: clamp(0.8rem, 3vw, 1rem);
       }
 
-      .contact-links {
+      .contact-links,.research-links {
         flex-direction: column;
       }
+      
       .project-card {
         width: 90vw;
       }
@@ -514,20 +567,30 @@
 
   <section>
     <div class="parallax-bg"></div>
-    <h2 class="heading">Reasearch Papers </h1>
-    <h2 class="heading">-> Multimodal Deep Learning Detects Spinal Metastasis via CT-Genomics</h2>
-    <p class="content"> Spinal metastasis is a critical complication of cancer, often leading to severe pain,
-      neurological impairment, and reduced quality of life. This project proposes a multimodal
-      deep learning approach that integrates CT imaging with genomic features to improve the
-      early detection and classification of spinal metastatic lesions. Leveraging the
-      Spine-Mets-CT-SEG dataset and The Cancer Genome Atlas (TCGA) data, the system aims
-      to correlate anatomical imaging biomarkers with patient-specific genomic profiles to enhance
-      prediction accuracy. The project will develop a deep learning pipeline that performs image
-      segmentation, genomic feature integration, and lesion classification. This interdisciplinary
-      work combines imaging AI, bioinformatics, and data science to explore clinically valuable
-      patterns. The expected outcome is a prototype framework capable of demonstrating the
-      feasibility and effectiveness of multimodal fusion in medical AI, with potential applications in
-      personalized cancer diagnostics.</p>
+    <!-- <h2 class="heading">Reasearch Papers </h1> -->
+    <h2 class="heading">Reasearch Paper -> Multimodal Deep Learning Detects Spinal Metastasis via CT-Genomics</h2>
+    <p class="content"> 
+      
+        
+        This project presents a multimodal deep learning approach that combines <strong>CT imaging</strong> with 
+        <strong>genomic data</strong> to enhance the early detection and classification of spinal metastatic lesions.
+        Leveraging the <em>Spine-Mets-CT-SEG</em> dataset alongside patient-specific genomic profiles from 
+        <em>The Cancer Genome Atlas (TCGA)</em>, the system performs:
+        
+          <strong>CT image segmentation</strong> of spinal lesions
+          <strong>Feature fusion</strong> of anatomical and genomic data
+          <strong>Classification</strong> into metastatic severity levels
+        
+        Advanced techniques such as <strong>U-Net-based segmentation</strong>, <strong>genomic embedding</strong>, and 
+        <strong>late fusion models</strong> are used to explore correlations between structural and molecular biomarkers.
+        This interdisciplinary project demonstrates the feasibility of multimodal AI in personalized cancer diagnostics.
+      </p>
+      <p class="sub-content"><strong>Tech Stack:</strong> PyTorch, NumPy, Pandas, Scikit-learn, Medical imaging toolkits, TCGA APIs</p>
+      <p class="sub-content"><strong>Core Skills:</strong> Image segmentation, feature fusion, multimodal learning, clinical AI</p>
+      <span class="small-break"></span>
+      <div class="research-links">
+        <a href="https://github.com/joze-Lee/multimodal-spine-metastasis" target="_blank" rel="noopener noreferrer">Check out my Research</a>
+      </div>
       <!-- <br><br> -->
       <!-- <a href="https://github.com/joze-Lee/Athena" target="_blank" class="github-link">
         <svg class="github-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
@@ -539,13 +602,30 @@
 
   <section>
     <div class="parallax-bg"></div>
-    <h2 class="heading">-> Retinal Disease Detection</h2>
-    <p class="content">Diabetic retinopathy (DR) is a leading cause of blindness worldwide, especially among individuals with diabetes. Early detection is vital for timely treatment and preventing vision loss. However, manual screening of retinal images is time-consuming and prone to human error. This study explores the use of deep learning, specifically Convolutional Neural Networks (CNNs), for automated DR detection in retinal fundus images. Using a publicly available dataset of 5,593 labeled images, we train a CNN-based model to classify DR into five severity levels.
-
-      To enhance model performance, advanced preprocessing techniques such as unsharp masking, contrast enhancement, and circle cropping are applied. The model is evaluated using metrics like precision, accuracy, F1-score, and recall, demonstrating the potential of deep learning for reliable and scalable DR screening.
+    <h2 class="heading">Reasearch Paper -> Retinal Disease Detection</h2>
+    <p class="content">
+        This project explores the application of <strong>deep learning</strong> for automated detection of 
+        <strong>diabetic retinopathy (DR)</strong>, a major cause of blindness globally, particularly among individuals with diabetes.
+        Leveraging a publicly available dataset of <em>5,593 retinal fundus images</em>, the system trains a 
+        <strong>Convolutional Neural Network (CNN)</strong> to classify DR into five severity levels.
       
-      This approach offers a promising solution to reduce the burden on healthcare professionals and improve access to timely care. Additionally, the study discusses challenges such as class imbalance and dataset noise, and suggests ways to improve model generalization and robustness in future work.</p>
-  </section>
+        Key stages in the pipeline include:
+        
+        <strong>Image preprocessing</strong> using techniques like unsharp masking, contrast enhancement, and circle cropping  
+        <strong>Model training</strong> using CNNs for severity classification  
+        <strong>Evaluation</strong> based on precision, accuracy, F1-score, and recall
+      
+        The approach demonstrates strong potential for reliable, scalable DR screening, reducing dependence on manual screening 
+        and enhancing access to early diagnosis. Challenges such as <strong>class imbalance</strong> and <strong>dataset noise</strong> are 
+        addressed to improve robustness and generalization in future clinical applications.
+      </p>
+      <p class="sub-content"><strong>Tech Stack:</strong> TensorFlow, Keras, OpenCV, Scikit-learn, Pandas, NumPy, Matplotlib</p>
+      <p class="sub-content"><strong>Core Skills:</strong> Image preprocessing, CNN-based classification, class balancing, medical AI</p>
+      <span class="small-break"></span>
+      <div class="research-links">
+        <a href="https://github.com/joze-Lee/retina-risk-ai" target="_blank" rel="noopener noreferrer">Check out my Research</a>
+      </div>
+    </section>
    <!-- Projects Section -->
    <section id="projects">
     <div class="parallax-bg"></div>
@@ -591,45 +671,123 @@
   <script>
     gsap.registerPlugin(ScrollTrigger);
 
+
+
+    // project card animation:
+    const projectCards = document.querySelectorAll('.project-card');
+const directions = [
+  { x: 0, y: -300 },  // from top
+  { x: 600, y: 0 },   // from right
+  { x: 0, y: 300 },   // from bottom
+  { x: -600, y: 0 }   // from left
+];
+
+
+projectCards.forEach((card, i) => {
+  const from = directions[i % directions.length];
+  
+  gsap.fromTo(card, 
+    { x: from.x, y: from.y, opacity: 0 }, 
+    { 
+      x: 0, 
+      y: 0, 
+      opacity: 1, 
+      duration: 1.2, 
+      delay: i * 0.15,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: card,
+        start: "top 85%",  // Adjust start trigger as needed
+        toggleActions: "play none none reverse"
+      }
+    });
+});
+
+
     // GSAP scroll animations for headings and content
     document.querySelectorAll('section').forEach((section, index) => {
-      const heading = section.querySelector('.heading');
-      const content = section.querySelector('.content');
+  const heading = section.querySelector('.heading');
+  const content = section.querySelector('.content');
+  const subContents = section.querySelectorAll('.sub-content');
 
-      const directions = ["x", "y", "x", "y", "x", "y"];
-      const values = [150, 100, -150, -100, 150, 100];
+  const directions = ["x", "y", "x", "y", "x", "y"];
+  const values = [150, 100, -150, -100, 150, 100];
 
-      gsap.fromTo(heading, {
-        [directions[index % directions.length]]: values[index % values.length],
-        opacity: 0
-      }, {
-        [directions[index % directions.length]]: 0,
-        opacity: 1,
-        duration: 1.2,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: section,
-          start: "top 75%",
-          toggleActions: "play none none reverse"
-        }
-      });
+  // Animate heading
+  gsap.fromTo(heading, {
+    [directions[index % directions.length]]: values[index % values.length],
+    opacity: 0
+  }, {
+    [directions[index % directions.length]]: 0,
+    opacity: 1,
+    duration: 1.2,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: section,
+      start: "top 75%",
+      toggleActions: "play none none reverse"
+    }
+  });
 
-      gsap.fromTo(content, {
-        y: 80,
-        opacity: 0
-      }, {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        delay: 0.4,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: section,
-          start: "top 65%",
-          toggleActions: "play none none reverse"
-        }
-      });
+  // Animate content
+  gsap.fromTo(content, {
+    y: 80,
+    opacity: 0
+  }, {
+    y: 0,
+    opacity: 1,
+    duration: 1,
+    delay: 0.4,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: section,
+      start: "top 65%",
+      toggleActions: "play none none reverse"
+    }
+  });
+
+  // Animate multiple sub-contents differently
+  subContents.forEach((subContent, i) => {
+    // For first sub-content: from left to right (x: -50 to 0)
+    // For second sub-content: from right to left (x: 50 to 0)
+    const fromX = i % 2 === 0 ? -50 : 50;
+
+    gsap.fromTo(subContent, {
+      x: fromX,
+      opacity: 0
+    }, {
+      x: 0,
+      opacity: 1,
+      duration: 1,
+      delay: 0.8 + i * 0.3, // stagger the delay a bit for each sub-content
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: section,
+        start: "top 60%",
+        toggleActions: "play none none reverse"
+      }
     });
+  });
+});
+gsap.fromTo(".contact-links a", 
+  { y: 50, opacity: 0 }, 
+  { 
+    y: 0, 
+    opacity: 1, 
+    duration: 1, 
+    stagger: 0.2, 
+    ease: "power3.in", 
+    scrollTrigger: {
+      trigger: ".contact-links",
+      start: "top 80%",
+      toggleActions: "play none none reverse"
+    }
+  });
+
+
+
+
+
 
     // Dark/light mode toggle logic
     const toggleBtn = document.getElementById('mode-toggle');
