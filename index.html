@@ -131,6 +131,9 @@
 
     /* Projects Section */
     .projects-container {
+      font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.5px;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -144,6 +147,9 @@
 
 
     .project-card {
+      font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.5px;
       background-color: var(--card-bg);
       border-radius: 12px;
       box-shadow: 0 0 8px #0008;
@@ -161,18 +167,59 @@
 
     .project-card:hover,
     .project-card:focus {
+      /* background: linear-gradient(90deg,
+          rgba(0, 122, 255, 1),
+          /* #007aff */
+          /* rgba(88, 86, 214, 1), */
+          /* #5856d6 */
+          /* rgba(175, 82, 222, 0.7), */
+          /* #af52de */
+          /* rgba(255, 45, 85, 1), */
+          /* #ff2d55 */
+          /* rgba(255, 59, 48, 1) */
+          /* #ff3b30 */
+          /* rgba(255, 149, 0, 0.5) */
+          /* #ff9500 */
+        /* );  */
+      color: var(--card-hover-text);
+      transform: scale(1.05);
+      box-shadow:
+        0 0 15px rgba(0, 122, 255, 1),
+        0 0 15px rgba(88, 86, 214, 1),
+        0 0 15px rgba(175, 82, 222, 1),
+        0 0 15px rgba(255, 45, 85, 1),
+        0 0 15px rgba(255, 59, 48, 1),
+        0 0 15px rgba(255, 149, 0, 1),
+        0 0 15px rgba(255, 59, 48, 1);
+      outline: none;
+    }
+
+
+    /* .project-card:hover,
+    .project-card:focus {
       background: linear-gradient(90deg, var(--heading-gradient-start), var(--heading-gradient-end));
+
       color: var(--card-hover-text);
       transform: scale(1.05);
       box-shadow: 0 0 20px var(--card-hover-gradient);
       outline: none;
-    }
+    } */
 
     .project-title {
       /* background: linear-gradient(90deg, var(--heading-gradient-start), var(--heading-gradient-end));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent; */
-      font-weight: 700;
+      /* background : linear-gradient(90deg, var(--heading-gradient-end), var(--heading-gradient-start));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; */
+      background: var(--heading-gradient);
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      /* font-weight: 600; */
+      letter-spacing: 0.5px;
+
+      font-weight: 600;
       font-size: 1.3rem;
       margin-bottom: 0.5rem;
     }
@@ -301,6 +348,7 @@
       font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
       font-weight: 600;
       letter-spacing: -0.5px;
+
       max-width: 1000px;
       font-size: clamp(2.5rem, 5vw, 3.5rem);
       background: var(--heading-gradient);
@@ -333,6 +381,9 @@
     }
 
     .sub-content {
+      font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.5px;
       max-width: 1000px;
       font-size: clamp(1rem, 2vw, 1.3rem);
       background: var(--card-hover-gradient);
@@ -347,6 +398,9 @@
     }
 
     p.content {
+      font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.5px;
       max-width: 1000px;
       font-size: clamp(1rem, 2vw, 1.3rem);
       color: var(--content-color);
@@ -363,6 +417,9 @@
     }
 
     p.content-about {
+      font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.5px;
       max-width: 1000px;
       font-size: clamp(1rem, 2vw, 1.3rem);
       color: var(--content-color);
@@ -373,6 +430,9 @@
 
     /* Links in last section styled as buttons */
     .contact-links a {
+      font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.5px;
       color: var(--text);
       text-decoration: none;
       font-weight: 600;
@@ -406,7 +466,9 @@
 
     .research-links a {
 
-
+      font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.5px;
       color: var(--text);
       text-decoration: none;
       font-weight: 600;
@@ -460,13 +522,16 @@
 
     /* Dark/light toggle button */
     #mode-toggle {
+      font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.5px;
       position: fixed;
       top: 0.5rem;
       right: 1rem;
       /* background: transparent; */
       border: 2px solid var(--card-hover-gradient);
       /* color: var(--content-color); */
-      font-weight: 700;
+
       padding: 0.5rem 1rem;
       border-radius: 30px;
       cursor: pointer;
@@ -673,17 +738,17 @@
     <p class="content">
 
 
-      This project presents a multimodal deep learning approach that combines <strong>CT imaging</strong> with
-      <strong>genomic data</strong> to enhance the early detection and classification of spinal metastatic lesions.
-      Leveraging the <em>Spine-Mets-CT-SEG</em> dataset alongside patient-specific genomic profiles from
-      <em>The Cancer Genome Atlas (TCGA)</em>, the system performs:
+      This project presents a multimodal deep learning approach that combines CT imaging with
+      genomic data to enhance the early detection and classification of spinal metastatic lesions.
+      Leveraging the Spine-Mets-CT-SEG dataset alongside patient-specific genomic profiles from
+      The Cancer Genome Atlas (TCGA), the system performs:
 
-      <strong>CT image segmentation</strong> of spinal lesions
-      <strong>Feature fusion</strong> of anatomical and genomic data
-      <strong>Classification</strong> into metastatic severity levels
+      CT image segmentation of spinal lesions
+      Feature fusion of anatomical and genomic data
+      Classification into metastatic severity levels
 
-      Advanced techniques such as <strong>U-Net-based segmentation</strong>, <strong>genomic embedding</strong>, and
-      <strong>late fusion models</strong> are used to explore correlations between structural and molecular biomarkers.
+      Advanced techniques such as U-Net-based segmentation, genomic embedding, and
+      late fusion models are used to explore correlations between structural and molecular biomarkers.
       This interdisciplinary project demonstrates the feasibility of multimodal AI in personalized cancer diagnostics.
     </p>
     <p class="sub-content"><strong>Tech Stack:</strong> PyTorch, NumPy, Pandas, Scikit-learn, Medical imaging toolkits,
@@ -708,23 +773,23 @@
     <div class="parallax-bg"></div>
     <h2 class="heading">Reasearch Paper -> Retinal Disease Detection</h2>
     <p class="content">
-      This project explores the application of <strong>deep learning</strong> for automated detection of
-      <strong>diabetic retinopathy (DR)</strong>, a major cause of blindness globally, particularly among individuals
+      This project explores the application of deep learning for automated detection of
+      diabetic retinopathy (DR), a major cause of blindness globally, particularly among individuals
       with diabetes.
-      Leveraging a publicly available dataset of <em>5,593 retinal fundus images</em>, the system trains a
-      <strong>Convolutional Neural Network (CNN)</strong> to classify DR into five severity levels.
+      Leveraging a publicly available dataset of 5,593 retinal fundus images, the system trains a
+      Convolutional Neural Network (CNN)to classify DR into five severity levels.
 
       Key stages in the pipeline include:
 
-      <strong>Image preprocessing</strong> using techniques like unsharp masking, contrast enhancement, and circle
+      Image preprocessing using techniques like unsharp masking, contrast enhancement, and circle
       cropping
-      <strong>Model training</strong> using CNNs for severity classification
-      <strong>Evaluation</strong> based on precision, accuracy, F1-score, and recall
+      Model training using CNNs for severity classification
+      Evaluation based on precision, accuracy, F1-score, and recall
 
       The approach demonstrates strong potential for reliable, scalable DR screening, reducing dependence on manual
       screening
-      and enhancing access to early diagnosis. Challenges such as <strong>class imbalance</strong> and <strong>dataset
-        noise</strong> are
+      and enhancing access to early diagnosis. Challenges such as class imbalance and dataset
+      noise are
       addressed to improve robustness and generalization in future clinical applications.
     </p>
     <p class="sub-content"><strong>Tech Stack:</strong> TensorFlow, Keras, OpenCV, Scikit-learn, Pandas, NumPy,
