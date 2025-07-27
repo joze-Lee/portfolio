@@ -569,39 +569,34 @@
       pointer-events: none;
       z-index: 1000;
     }
-  
+
     svg.wave {
       display: block;
       width: 100%;
       height: 130px;
     }
   </style>
-  
+
   <div class="wave-container" aria-hidden="true">
     <svg class="wave" viewBox="0 0 1800 130" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <!-- Apple Intelligence gradient approximation -->
         <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#0a84ff" />      <!-- Blue -->
-          <stop offset="33%" stop-color="#5e5ce6" />      <!-- Indigo -->
-          <stop offset="66%" stop-color="#bf5af2" />      <!-- Pink/Violet -->
-          <stop offset="100%" stop-color="#ff453a" />     <!-- Orange/Red -->
+          <stop offset="0%" stop-color="#0a84ff" /> <!-- Blue -->
+          <stop offset="33%" stop-color="#5e5ce6" /> <!-- Indigo -->
+          <stop offset="66%" stop-color="#bf5af2" /> <!-- Pink/Violet -->
+          <stop offset="100%" stop-color="#ff453a" /> <!-- Orange/Red -->
         </linearGradient>
-  
+
         <!-- Optional glow effect adjusted to match gradient -->
         <filter id="glow2" x="-40%" y="-40%" width="180%" height="180%">
           <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#5e5ce6" flood-opacity="0.6" />
           <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#ff453a" flood-opacity="0.4" />
         </filter>
       </defs>
-  
-      <path
-        d="M0,70 Q300,10 600,70 Q900,130 1200,70 Q1500,10 1800,70"
-        stroke="url(#waveGradient)"
-        stroke-width="7"
-        fill="none"
-        filter="url(#glow2)"
-      />
+
+      <path d="M0,70 Q300,10 600,70 Q900,130 1200,70 Q1500,10 1800,70" stroke="url(#waveGradient)" stroke-width="7"
+        fill="none" filter="url(#glow2)" />
     </svg>
   </div>
 
@@ -622,13 +617,30 @@
     <h2 class="heading">About Me</h2>
     <!-- <p class="content">MSc AI from UEL | 6.5+ years backend expertise | AI-powered solutions enthusiast | Educator & Mentor.</p> -->
     <p class="content-about">
-      I'm a seasoned back-end developer turned AI engineer with years of experience designing and deploying scalable, high-performance systems using Python, Node.js, and microservices architecture. I’ve led engineering teams, reduced API response times by 15%, and mentored junior developers to consistently deliver clean, efficient, and maintainable code. Currently, I’m pursuing a Master’s in AI at the University of East London, where I’ve achieved distinction-level scores (91%, 94%) in core modules. My focus is on the practical application of machine learning and deep learning, with expertise in building LLM-based solutions, RAG pipelines, and intelligent AI agents using TensorFlow, PyTorch, and Hugging Face frameworks for real-world, impactful problem solving.
+      I'm a seasoned back-end developer turned AI engineer with years of experience designing and deploying scalable,
+      high-performance systems using Python, Node.js, and microservices architecture. I’ve led engineering teams,
+      reduced API response times by 15%, and mentored junior developers to consistently deliver clean, efficient, and
+      maintainable code. Currently, I’m pursuing a Master’s in AI at the University of East London, where I’ve achieved
+      distinction-level scores (91%, 94%) in core modules. My focus is on the practical application of machine learning
+      and deep learning, with expertise in building LLM-based solutions, RAG pipelines, and intelligent AI agents using
+      TensorFlow, PyTorch, and Hugging Face frameworks for real-world, impactful problem solving.
     </p>
-    
+    <br>
     <p class="content-about">
-      I’m the creator of <strong class="sub-content">Athena</strong>, an AI-powered research assistant capable of parsing PDFs, performing vector search with FAISS, and enabling context-aware Q&A via RAG workflows using open-source LLMs. I’ve deployed optimized LLM pipelines and AI models to production on AWS and Azure, integrating robust MLOps practices with CI/CD pipelines using tools like Docker and GitHub Actions. 
-    
-      I thrive in fast-paced, startup-like environments and enjoy working in cross-functional teams. My strengths lie in quick ramp-up, resourcefulness, collaborative problem-solving, and a relentless drive to solve real-world problems using AI. Whether leading a team or building cutting-edge AI applications, I bring a blend of technical depth, leadership, and a passion for innovation.
+      I’m the creator of <strong class="sub-content">ATHENA</strong>, an AI-powered research assistant that enables
+      users to choose from multiple models, including Mistral-7B, Zephyr-7b-beta, Mistral Q4, and
+      phi-mini. These models are seamlessly integrated via llama.cpp to harness the full potential of Apple Silicon (M1
+      chip) through Metal Performance Shaders (MPS). Athena also supports GPT fine-tuning with LoRA-SPE, allowing
+      efficient and targeted model adaptation. It combines PDF parsing, vector search via FAISS, and context-aware Q&A
+      through RAG workflows, delivering real-time, optimized performance.
+    </p>
+    <br>
+    <p class="content-about">
+      I’ve deployed Athena and other LLM pipelines to production on AWS and Azure, embedding robust MLOps practices with
+      CI/CD pipelines using Docker, GitHub Actions, and other tools. I thrive in fast-paced, startup-like environments,
+      enjoy working in cross-functional teams, and excel in rapid learning, resourceful problem-solving, and AI-driven
+      innovation. Whether leading teams or building cutting-edge AI systems, I bring a unique blend of technical depth,
+      leadership, and passion.
     </p>
   </section>
 
