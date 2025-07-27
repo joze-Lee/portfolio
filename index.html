@@ -10,7 +10,6 @@
   <meta name="theme-color" content="#000000">
   <link rel="apple-touch-icon" href="assets/tab_icon1.png">
   <style>
-
     /* Base Reset */
     * {
       margin: 0;
@@ -18,6 +17,7 @@
       box-sizing: border-box;
       transition: color 0.3s ease, background-color 0.3s ease;
     }
+
 
 
     html,
@@ -36,20 +36,55 @@
     :root {
       --bg: #000;
       --text: #fff;
+
+      /* Updated gradient to match Apple Intelligence style */
+      --heading-gradient-start: #5856d6;
+      --heading-gradient-end: #ff3b30;
+      --heading-gradient: linear-gradient(90deg,
+          #007aff,
+          /* Blue */
+          #5856d6,
+          /* Indigo */
+          #af52de,
+          /* Violet/Purple */
+          #ff2d55,
+          /* Hot Pink */
+          #ff3b30,
+          /* Reddish */
+          #ff9500
+          /* Orange */
+        );
+
+      --parallax-bg-start: #1f1f1f;
+      --parallax-bg-end: #000;
+      --content-color: #e0e0e0;
+
+      --card-bg: #111;
+      --card-hover-bg: #ff9500;
+      --card-text: #ddd;
+      --card-hover-text: #fff;
+      --card-hover-gradient: var(--heading-gradient);
+      --link-hover: var(--heading-gradient);
+    }
+
+    /* :root {
+      --bg: #000;
+      --text: #fff;
       --heading-gradient-start: #00ffff;
       --heading-gradient-end: #a336c4;
       --parallax-bg-start: #1f1f1f;
       --parallax-bg-end: #000;
       --content-color: #e0e0e0;
-      /* --link-hover: #a336c4; */
-      --card-bg: #111;
-      --card-hover-bg: #a336c4;
-      --card-text: #ddd;
-      --card-hover-text: #fff;
-      --card-hover-gradient: linear-gradient(135deg, #00ffff, #a336c4);
-      --link-hover: var(--card-hover-gradient)
+                          --link-hover: #a336c4; 
+    --card-bg: #111;
+    --card-hover-bg: #a336c4;
+    --card-text: #ddd;
+    --card-hover-text: #fff;
+    --card-hover-gradient: linear-gradient(135deg, #00ffff, #a336c4);
+    --link-hover: var(--card-hover-gradient)
     }
-    
+
+    */
 
     /* Light mode variables */
     html.light {
@@ -65,13 +100,13 @@
 
     section {
       /* scroll-snap-align: start;    */
-      height: 100vh; 
-      padding-top: 100px; 
+      height: 100vh;
+      padding-top: 100px;
 
       position: relative;
       width: 100vw;
       /* height: 100vh; */
-      min-height: 100vh; 
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -81,18 +116,19 @@
       text-align: center;
     }
 
-    
+
     .parallax-bg {
       position: absolute;
       top: -10%;
       left: -10%;
       width: 120%;
       height: 120%;
-      background: radial-gradient(circle, var(--parallax-bg-start), var(--parallax-bg-end));
+      background: linear-gradient(90deg, var(--heading-gradient-start), var(--heading-gradient-end));
       z-index: -2;
       transform: translateZ(-1px) scale(2);
       animation: bgPulse 20s ease-in-out infinite alternate;
     }
+
     /* Projects Section */
     .projects-container {
       display: flex;
@@ -105,7 +141,7 @@
       user-select: none;
     }
 
-    
+
 
     .project-card {
       background-color: var(--card-bg);
@@ -125,7 +161,7 @@
 
     .project-card:hover,
     .project-card:focus {
-      background: var(--card-hover-gradient);
+      background: linear-gradient(90deg, var(--heading-gradient-start), var(--heading-gradient-end));
       color: var(--card-hover-text);
       transform: scale(1.05);
       box-shadow: 0 0 20px var(--card-hover-gradient);
@@ -152,9 +188,11 @@
       0% {
         filter: brightness(1);
       }
+
       50% {
         filter: brightness(1.2);
       }
+
       100% {
         filter: brightness(1);
       }
@@ -177,78 +215,95 @@
     }
 
     @keyframes blobMove {
+
       0%,
       100% {
         transform: translateX(-50%) translateY(0);
       }
+
       50% {
         transform: translateX(-50%) translateY(30px);
       }
     }
 
- 
 
+    @font-face {
+      font-family: "SF Pro Display";
+      src: url("/fonts/SF-Pro-Display-Semibold.otf") format("opentype");
+      font-weight: 600;
+      font-style: normal;
+    }
 
-.github-icon  {
-  width: 40px;
-  height: 40px;
-  display: inline-block;
-  background: linear-gradient(90deg, var(--heading-gradient-start), var(--heading-gradient-end));
-  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.26.82-.577v-2.234c-3.338.725-4.033-1.415-4.033-1.415-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.082-.73.082-.73 1.205.085 1.84 1.236 1.84 1.236 1.07 1.835 2.807 1.305 3.492.997.108-.775.418-1.305.76-1.605-2.665-.305-5.467-1.332-5.467-5.93 0-1.31.467-2.38 1.235-3.22-.123-.303-.535-1.527.117-3.176 0 0 1.005-.322 3.3 1.23a11.52 11.52 0 0 1 3-.405c1.02.005 2.045.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.655 1.65.243 2.873.12 3.176.77.84 1.23 1.91 1.23 3.22 0 4.61-2.807 5.625-5.48 5.92.43.37.823 1.102.823 2.222v3.293c0 .32.215.694.825.576C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>');
-  /* -webkit-mask-repeat: no-repeat;
+    .github-icon {
+      width: 40px;
+      height: 40px;
+      display: inline-block;
+      background: linear-gradient(90deg, var(--heading-gradient-start), var(--heading-gradient-end));
+      -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.26.82-.577v-2.234c-3.338.725-4.033-1.415-4.033-1.415-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.082-.73.082-.73 1.205.085 1.84 1.236 1.84 1.236 1.07 1.835 2.807 1.305 3.492.997.108-.775.418-1.305.76-1.605-2.665-.305-5.467-1.332-5.467-5.93 0-1.31.467-2.38 1.235-3.22-.123-.303-.535-1.527.117-3.176 0 0 1.005-.322 3.3 1.23a11.52 11.52 0 0 1 3-.405c1.02.005 2.045.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.655 1.65.243 2.873.12 3.176.77.84 1.23 1.91 1.23 3.22 0 4.61-2.807 5.625-5.48 5.92.43.37.823 1.102.823 2.222v3.293c0 .32.215.694.825.576C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>');
+      /* -webkit-mask-repeat: no-repeat;
   -webkit-mask-size: contain;
   -webkit-mask-position: center;  */
-  mask-image: inherit;
-  background-clip: border-box;
-}
-.email-icon  {
-  width: 40px;
-  height: 40px;
-  display: inline-block;
-  background: linear-gradient(90deg, var(--heading-gradient-start), var(--heading-gradient-end));
-  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>');
-  /* -webkit-mask-repeat: no-repeat;
+      mask-image: inherit;
+      background-clip: border-box;
+    }
+
+    .email-icon {
+      width: 40px;
+      height: 40px;
+      display: inline-block;
+      background: linear-gradient(90deg, var(--heading-gradient-start), var(--heading-gradient-end));
+      -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>');
+      /* -webkit-mask-repeat: no-repeat;
   -webkit-mask-size: contain;
   -webkit-mask-position: center;  */
-  mask-image: inherit;
-  background-clip: border-box;
-}
-.kaggle-icon  {
-  width: 40px;
-  height: 40px;
-  display: inline-block;
-  background: linear-gradient(90deg, var(--heading-gradient-start), var(--heading-gradient-end));
-  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8.5 12a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1 -7 0z"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>');
-  /* -webkit-mask-repeat: no-repeat;
+      mask-image: inherit;
+      background-clip: border-box;
+    }
+
+    .kaggle-icon {
+      width: 40px;
+      height: 40px;
+      display: inline-block;
+      background: linear-gradient(90deg, var(--heading-gradient-start), var(--heading-gradient-end));
+      -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8.5 12a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1 -7 0z"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>');
+      /* -webkit-mask-repeat: no-repeat;
   -webkit-mask-size: contain;
   -webkit-mask-position: center;  */
-  mask-image: inherit;
-  background-clip: border-box;
-}
-.linkedin-icon  {
-  width: 40px;
-  height: 40px;
-  display: inline-block;
-  background: linear-gradient(90deg, var(--heading-gradient-start), var(--heading-gradient-end));
-  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.8 0-5 2.2-5 5v14c0 2.8 2.2 5 5 5h14c2.8 0 5-2.2 5-5v-14c0-2.8-2.2-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.3c-1 0-1.8-.8-1.8-1.7s.8-1.7 1.8-1.7 1.8.8 1.8 1.7-.8 1.7-1.8 1.7zm13.5 11.3h-3v-5.5c0-1.3-.4-2.2-1.4-2.2-1 0-1.6.7-1.9 1.3-.1.3-.1.7-.1 1.1v5.3h-3v-10h3v1.4c.4-.6 1.2-1.5 2.8-1.5 2 0 3.6 1.3 3.6 4.2v6z"/></svg>');
-  /* -webkit-mask-repeat: no-repeat; */
-  /* -webkit-mask-size: contain; */
-  /* -webkit-mask-position: center;  */
-  mask-image: inherit;
-  background-clip: border-box;
-}
+      mask-image: inherit;
+      background-clip: border-box;
+    }
+
+    .linkedin-icon {
+      width: 40px;
+      height: 40px;
+      display: inline-block;
+      background: linear-gradient(90deg, var(--heading-gradient-start), var(--heading-gradient-end));
+      -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.8 0-5 2.2-5 5v14c0 2.8 2.2 5 5 5h14c2.8 0 5-2.2 5-5v-14c0-2.8-2.2-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.3c-1 0-1.8-.8-1.8-1.7s.8-1.7 1.8-1.7 1.8.8 1.8 1.7-.8 1.7-1.8 1.7zm13.5 11.3h-3v-5.5c0-1.3-.4-2.2-1.4-2.2-1 0-1.6.7-1.9 1.3-.1.3-.1.7-.1 1.1v5.3h-3v-10h3v1.4c.4-.6 1.2-1.5 2.8-1.5 2 0 3.6 1.3 3.6 4.2v6z"/></svg>');
+      /* -webkit-mask-repeat: no-repeat; */
+      /* -webkit-mask-size: contain; */
+      /* -webkit-mask-position: center;  */
+      mask-image: inherit;
+      background-clip: border-box;
+    }
 
 
 
 
-
+    /* h1 {
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+} */
 
     /* Headings */
     h1.heading,
     h2.heading {
+      font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      font-weight: 600;
+      letter-spacing: -0.5px;
       max-width: 1000px;
       font-size: clamp(2.5rem, 5vw, 3.5rem);
-      background: linear-gradient(90deg, var(--heading-gradient-start), var(--heading-gradient-end));
+      background: var(--heading-gradient);
       background-clip: text;
       -webkit-text-fill-color: transparent;
       margin-bottom: 1rem;
@@ -262,21 +317,35 @@
     h1.heading:hover,
     h2.heading:hover {
       transform: scale(1.05);
-      filter: drop-shadow(0 0 6px var(--heading-gradient-end));
+      filter: drop-shadow(0 0 2.5px #af52de);
+      /* #007aff,
+         
+          ,
+         
+          ,
+         
+          #ff2d55,
+         
+          #ff3b30,
+         
+          #ff9500 */
+
     }
 
-    p.sub-content{
+    p.sub-content {
       max-width: 1000px;
-  font-size: clamp(1rem, 2vw, 1.3rem);
-  background: var(--card-hover-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text; /* for Firefox */
-  color: transparent;
-  line-height: 1.6;
-  user-select: text;
-  text-align: center;
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      background: var(--card-hover-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      /* for Firefox */
+      color: transparent;
+      line-height: 1.6;
+      user-select: text;
+      text-align: center;
     }
+
     p.content {
       max-width: 1000px;
       font-size: clamp(1rem, 2vw, 1.3rem);
@@ -285,6 +354,7 @@
       user-select: text;
       text-align: center;
     }
+
     .project-desc {
       font-weight: 400;
       font-size: clamp(1rem, 2vw, 1.3rem);
@@ -300,78 +370,81 @@
       user-select: text;
       text-align: center;
     }
+
     /* Links in last section styled as buttons */
-.contact-links a {
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 600;
-  padding: 0.4rem 1rem;
-  border: none;
-  border-radius: 30px;
-  background: none;
-  cursor: pointer;
+    .contact-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.4rem 1rem;
+      border: none;
+      border-radius: 30px;
+      background: none;
+      cursor: pointer;
 
-  /* No gradient in normal state */
-  background-clip: unset;
-  -webkit-background-clip: unset;
-  -webkit-text-fill-color: unset;
-  /* text-fill-color: unset; */
-  transition: color 0.3s ease;
-}
+      /* No gradient in normal state */
+      background-clip: unset;
+      -webkit-background-clip: unset;
+      -webkit-text-fill-color: unset;
+      /* text-fill-color: unset; */
+      transition: color 0.3s ease;
+    }
 
-.contact-links a:hover {
-  /* Gradient text on hover */
-  background: var(--card-hover-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  /* text-fill-color: transparent; */
-  color: unset;
-  box-shadow: none;
-  background-color: none;
-  border: none; 
-}
-
-
-.research-links a {
-  
-
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 600;
-  padding: 0.4rem 1rem;
-  border: none;
-  border-radius: 30px;
-  background: none;
-  cursor: pointer;
-
-  /* No gradient in normal state */
-  background-clip: unset;
-  -webkit-background-clip: unset;
-  -webkit-text-fill-color: unset;
-  /* text-fill-color: unset; */
-  transition: color 0.3s ease;
-}
-
-.research-links a:hover {
-   /* Gradient text on hover */
-   background: var(--card-hover-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  /* text-fill-color: transparent; */
-  color: unset;
-  box-shadow: none;
-  background-color: none;
-  border: none; 
+    .contact-links a:hover {
+      /* Gradient text on hover */
+      background: var(--card-hover-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      /* text-fill-color: transparent; */
+      color: unset;
+      box-shadow: none;
+      background-color: none;
+      border: none;
+    }
 
 
- 
-}
-.small-break {
-  display: block;
-  margin-top: 7px; /* Adjust as needed */
-}
+    .research-links a {
+
+
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.4rem 1rem;
+      border: none;
+      border-radius: 30px;
+      background: none;
+      cursor: pointer;
+
+      /* No gradient in normal state */
+      background-clip: unset;
+      -webkit-background-clip: unset;
+      -webkit-text-fill-color: unset;
+      /* text-fill-color: unset; */
+      transition: color 0.3s ease;
+    }
+
+    .research-links a:hover {
+      /* Gradient text on hover */
+      background: var(--card-hover-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      /* text-fill-color: transparent; */
+      color: unset;
+      box-shadow: none;
+      background-color: none;
+      border: none;
+
+
+
+    }
+
+    .small-break {
+      display: block;
+      margin-top: 7px;
+      /* Adjust as needed */
+    }
 
 
     /* Scroll Path SVG */
@@ -391,7 +464,7 @@
       top: 0.5rem;
       right: 1rem;
       /* background: transparent; */
-      border: 2px solid var(--content-color);
+      border: 2px solid var(--card-hover-gradient);
       /* color: var(--content-color); */
       font-weight: 700;
       padding: 0.5rem 1rem;
@@ -400,7 +473,8 @@
       user-select: none;
       transition: background-color 0.3s ease, color 0.3s ease;
       z-index: 10;
-      background: var(--link-hover);
+      /* background: var(--card-hover-gradient); */
+      background: linear-gradient(90deg, var(--heading-gradient-start), var(--heading-gradient-end));
       color: #fff;
       border-color: transparent
     }
@@ -413,9 +487,10 @@
 
     /* Responsive tweaks */
     @media (max-width: 768px) {
+
       h1.heading,
       h2.heading {
-        margin-top: 2rem; 
+        margin-top: 2rem;
         font-size: clamp(1.8rem, 6vw, 2.4rem);
       }
 
@@ -428,46 +503,51 @@
         width: 300px;
         height: 300px;
       }
+
       .projects-container {
         max-width: 100%;
         gap: 1rem;
       }
+
       .project-card {
         width: 90vw;
         /* padding: 1rem 1.2rem; */
       }
-   
+
     }
 
     @media (max-width: 480px) {
+
       h1.heading,
       h2.heading {
         font-size: clamp(1.6rem, 7vw, 2.2rem);
       }
-      
-      
-       
+
+
+
       p.content {
         font-size: clamp(0.8rem, 3vw, 1rem);
       }
-      p.content-about{
+
+      p.content-about {
         font-size: clamp(0.8rem, 3vw, 1rem);
       }
 
-      .contact-links,.research-links {
+      .contact-links,
+      .research-links {
         flex-direction: column;
       }
-      
+
       .project-card {
         width: 90vw;
       }
-      .project-desc {
-      font-size: clamp(0.8rem, 3vw, 1rem);
-    }
 
-    
-  }
-    
+      .project-desc {
+        font-size: clamp(0.8rem, 3vw, 1rem);
+      }
+
+
+    }
   </style>
 </head>
 
@@ -489,6 +569,7 @@
       pointer-events: none;
       z-index: 1000;
     }
+  
     svg.wave {
       display: block;
       width: 100%;
@@ -499,27 +580,33 @@
   <div class="wave-container" aria-hidden="true">
     <svg class="wave" viewBox="0 0 1800 130" xmlns="http://www.w3.org/2000/svg">
       <defs>
+        <!-- Apple Intelligence gradient approximation -->
         <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#00ffff" />
-          <stop offset="100%" stop-color="#a336c4" />
+          <stop offset="0%" stop-color="#0a84ff" />      <!-- Blue -->
+          <stop offset="33%" stop-color="#5e5ce6" />      <!-- Indigo -->
+          <stop offset="66%" stop-color="#bf5af2" />      <!-- Pink/Violet -->
+          <stop offset="100%" stop-color="#ff453a" />     <!-- Orange/Red -->
         </linearGradient>
+  
+        <!-- Optional glow effect adjusted to match gradient -->
         <filter id="glow2" x="-40%" y="-40%" width="180%" height="180%">
-          <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#00ffff" flood-opacity="0.6"/>
-          <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#a336c4" flood-opacity="0.4"/>
+          <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#5e5ce6" flood-opacity="0.6" />
+          <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#ff453a" flood-opacity="0.4" />
         </filter>
       </defs>
-      <path 
-        d="M0,70 Q300,10 600,70 Q900,130 1200,70 Q1500,10 1800,70" 
-        stroke="url(#waveGradient)" 
-        stroke-width="7" 
-        fill="none" 
+  
+      <path
+        d="M0,70 Q300,10 600,70 Q900,130 1200,70 Q1500,10 1800,70"
+        stroke="url(#waveGradient)"
+        stroke-width="7"
+        fill="none"
         filter="url(#glow2)"
       />
     </svg>
   </div>
-  
-  
-  
+
+
+
 
   <!-- Animated blob background -->
   <div class="blob" aria-hidden="true"></div>
@@ -535,21 +622,34 @@
     <h2 class="heading">About Me</h2>
     <!-- <p class="content">MSc AI from UEL | 6.5+ years backend expertise | AI-powered solutions enthusiast | Educator & Mentor.</p> -->
     <p class="content-about">
-      I’m a seasoned back-end developer turned AI engineer with years of experience designing and deploying scalable systems using Node.js, Python, and microservices. I’ve led engineering teams, reduced API response times by 15%, and mentored junior developers to consistently write clean, efficient code.
+      I’m a seasoned back-end developer turned AI engineer with years of experience designing and deploying scalable
+      systems using Node.js, Python, and microservices. I’ve led engineering teams, reduced API response times by 15%,
+      and mentored junior developers to consistently write clean, efficient code.
 
-      Currently pursuing an MSc in Artificial Intelligence at the University of East London, I’m achieving distinction-level scores (91%, 94%) while focusing on practical applications of machine learning and deep learning. My work spans LLM-based solutions, RAG pipelines, and intelligent AI agents using TensorFlow, PyTorch, and Hugging Face.
+      Currently pursuing an MSc in Artificial Intelligence at the University of East London, I’m achieving
+      distinction-level scores (91%, 94%) while focusing on practical applications of machine learning and deep
+      learning. My work spans LLM-based solutions, RAG pipelines, and intelligent AI agents using TensorFlow, PyTorch,
+      and Hugging Face.
 
-      I’m the creator of Athena, an AI-powered research assistant capable of parsing PDFs, performing vector search with FAISS, and enabling context-aware Q&A through RAG workflows and open-source LLMs. I have deployed models to production on AWS and Azure, and have built CI/CD pipelines for reliable ML operations using Docker, GitHub Actions, and other MLOps tools.
+      I’m the creator of Athena, an AI-powered research assistant capable of parsing PDFs, performing vector search with
+      FAISS, and enabling context-aware Q&A through RAG workflows and open-source LLMs. I have deployed models to
+      production on AWS and Azure, and have built CI/CD pipelines for reliable ML operations using Docker, GitHub
+      Actions, and other MLOps tools.
 
-      I thrive in startup-like, fast-paced environments, enjoy working in cross-functional teams, and take pride in mentoring others. My approach blends technical expertise, leadership, and a deep passion for solving real-world problems using AI.
-     
-</p>
+      I thrive in startup-like, fast-paced environments, enjoy working in cross-functional teams, and take pride in
+      mentoring others. My approach blends technical expertise, leadership, and a deep passion for solving real-world
+      problems using AI.
+
+    </p>
   </section>
 
   <section>
     <div class="parallax-bg"></div>
     <h2 class="heading">Key Skills</h2>
-    <p class="content"> Python, JavaScript, SQL/NoSQL, Node.js, REST APIs, Microservices, TensorFlow, PyTorch, Hugging Face, LangChain, FastAPI, Gradio, Neural Networks, LLMs, Prompt Engineering, Fine-Tuning, Embeddings, Transformers, RAG workflows, FAISS, AWS (EC2, S3), Azure ML, Docker, GitHub Actions, CI/CD pipelines, Agile, Test-Driven Development (TDD), MLOps, Collaboration, Problem-Solving, Team Mentoring</p>
+    <p class="content"> Python, JavaScript, SQL/NoSQL, Node.js, REST APIs, Microservices, TensorFlow, PyTorch, Hugging
+      Face, LangChain, FastAPI, Gradio, Neural Networks, LLMs, Prompt Engineering, Fine-Tuning, Embeddings,
+      Transformers, RAG workflows, FAISS, AWS (EC2, S3), Azure ML, Docker, GitHub Actions, CI/CD pipelines, Agile,
+      Test-Driven Development (TDD), MLOps, Collaboration, Problem-Solving, Team Mentoring</p>
   </section>
 
   <!-- <section>
@@ -569,30 +669,33 @@
     <div class="parallax-bg"></div>
     <!-- <h2 class="heading">Reasearch Papers </h1> -->
     <h2 class="heading">Reasearch Paper -> Multimodal Deep Learning Detects Spinal Metastasis via CT-Genomics</h2>
-    <p class="content"> 
-      
-        
-        This project presents a multimodal deep learning approach that combines <strong>CT imaging</strong> with 
-        <strong>genomic data</strong> to enhance the early detection and classification of spinal metastatic lesions.
-        Leveraging the <em>Spine-Mets-CT-SEG</em> dataset alongside patient-specific genomic profiles from 
-        <em>The Cancer Genome Atlas (TCGA)</em>, the system performs:
-        
-          <strong>CT image segmentation</strong> of spinal lesions
-          <strong>Feature fusion</strong> of anatomical and genomic data
-          <strong>Classification</strong> into metastatic severity levels
-        
-        Advanced techniques such as <strong>U-Net-based segmentation</strong>, <strong>genomic embedding</strong>, and 
-        <strong>late fusion models</strong> are used to explore correlations between structural and molecular biomarkers.
-        This interdisciplinary project demonstrates the feasibility of multimodal AI in personalized cancer diagnostics.
-      </p>
-      <p class="sub-content"><strong>Tech Stack:</strong> PyTorch, NumPy, Pandas, Scikit-learn, Medical imaging toolkits, TCGA APIs</p>
-      <p class="sub-content"><strong>Core Skills:</strong> Image segmentation, feature fusion, multimodal learning, clinical AI</p>
-      <span class="small-break"></span>
-      <div class="research-links">
-        <a href="https://github.com/joze-Lee/multimodal-spine-metastasis" target="_blank" rel="noopener noreferrer">Check out my Research</a>
-      </div>
-      <!-- <br><br> -->
-      <!-- <a href="https://github.com/joze-Lee/Athena" target="_blank" class="github-link">
+    <p class="content">
+
+
+      This project presents a multimodal deep learning approach that combines <strong>CT imaging</strong> with
+      <strong>genomic data</strong> to enhance the early detection and classification of spinal metastatic lesions.
+      Leveraging the <em>Spine-Mets-CT-SEG</em> dataset alongside patient-specific genomic profiles from
+      <em>The Cancer Genome Atlas (TCGA)</em>, the system performs:
+
+      <strong>CT image segmentation</strong> of spinal lesions
+      <strong>Feature fusion</strong> of anatomical and genomic data
+      <strong>Classification</strong> into metastatic severity levels
+
+      Advanced techniques such as <strong>U-Net-based segmentation</strong>, <strong>genomic embedding</strong>, and
+      <strong>late fusion models</strong> are used to explore correlations between structural and molecular biomarkers.
+      This interdisciplinary project demonstrates the feasibility of multimodal AI in personalized cancer diagnostics.
+    </p>
+    <p class="sub-content"><strong>Tech Stack:</strong> PyTorch, NumPy, Pandas, Scikit-learn, Medical imaging toolkits,
+      TCGA APIs</p>
+    <p class="sub-content"><strong>Core Skills:</strong> Image segmentation, feature fusion, multimodal learning,
+      clinical AI</p>
+    <span class="small-break"></span>
+    <div class="research-links">
+      <a href="https://github.com/joze-Lee/multimodal-spine-metastasis" target="_blank" rel="noopener noreferrer">Check
+        out my Research</a>
+    </div>
+    <!-- <br><br> -->
+    <!-- <a href="https://github.com/joze-Lee/Athena" target="_blank" class="github-link">
         <svg class="github-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
           <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.26.82-.577v-2.234c-3.338.725-4.033-1.415-4.033-1.415-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.082-.73.082-.73 1.205.085 1.84 1.236 1.84 1.236 1.07 1.835 2.807 1.305 3.492.997.108-.775.418-1.305.76-1.605-2.665-.305-5.467-1.332-5.467-5.93 0-1.31.467-2.38 1.235-3.22-.123-.303-.535-1.527.117-3.176 0 0 1.005-.322 3.3 1.23a11.52 11.52 0 0 1 3-.405c1.02.005 2.045.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.655 1.65.243 2.873.12 3.176.77.84 1.23 1.91 1.23 3.22 0 4.61-2.807 5.625-5.48 5.92.43.37.823 1.102.823 2.222v3.293c0 .32.215.694.825.576C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/>
         </svg>
@@ -604,55 +707,66 @@
     <div class="parallax-bg"></div>
     <h2 class="heading">Reasearch Paper -> Retinal Disease Detection</h2>
     <p class="content">
-        This project explores the application of <strong>deep learning</strong> for automated detection of 
-        <strong>diabetic retinopathy (DR)</strong>, a major cause of blindness globally, particularly among individuals with diabetes.
-        Leveraging a publicly available dataset of <em>5,593 retinal fundus images</em>, the system trains a 
-        <strong>Convolutional Neural Network (CNN)</strong> to classify DR into five severity levels.
-      
-        Key stages in the pipeline include:
-        
-        <strong>Image preprocessing</strong> using techniques like unsharp masking, contrast enhancement, and circle cropping  
-        <strong>Model training</strong> using CNNs for severity classification  
-        <strong>Evaluation</strong> based on precision, accuracy, F1-score, and recall
-      
-        The approach demonstrates strong potential for reliable, scalable DR screening, reducing dependence on manual screening 
-        and enhancing access to early diagnosis. Challenges such as <strong>class imbalance</strong> and <strong>dataset noise</strong> are 
-        addressed to improve robustness and generalization in future clinical applications.
-      </p>
-      <p class="sub-content"><strong>Tech Stack:</strong> TensorFlow, Keras, OpenCV, Scikit-learn, Pandas, NumPy, Matplotlib</p>
-      <p class="sub-content"><strong>Core Skills:</strong> Image preprocessing, CNN-based classification, class balancing, medical AI</p>
-      <span class="small-break"></span>
-      <div class="research-links">
-        <a href="https://github.com/joze-Lee/retina-risk-ai" target="_blank" rel="noopener noreferrer">Check out my Research</a>
-      </div>
-    </section>
-   <!-- Projects Section -->
-   <section id="projects">
+      This project explores the application of <strong>deep learning</strong> for automated detection of
+      <strong>diabetic retinopathy (DR)</strong>, a major cause of blindness globally, particularly among individuals
+      with diabetes.
+      Leveraging a publicly available dataset of <em>5,593 retinal fundus images</em>, the system trains a
+      <strong>Convolutional Neural Network (CNN)</strong> to classify DR into five severity levels.
+
+      Key stages in the pipeline include:
+
+      <strong>Image preprocessing</strong> using techniques like unsharp masking, contrast enhancement, and circle
+      cropping
+      <strong>Model training</strong> using CNNs for severity classification
+      <strong>Evaluation</strong> based on precision, accuracy, F1-score, and recall
+
+      The approach demonstrates strong potential for reliable, scalable DR screening, reducing dependence on manual
+      screening
+      and enhancing access to early diagnosis. Challenges such as <strong>class imbalance</strong> and <strong>dataset
+        noise</strong> are
+      addressed to improve robustness and generalization in future clinical applications.
+    </p>
+    <p class="sub-content"><strong>Tech Stack:</strong> TensorFlow, Keras, OpenCV, Scikit-learn, Pandas, NumPy,
+      Matplotlib</p>
+    <p class="sub-content"><strong>Core Skills:</strong> Image preprocessing, CNN-based classification, class balancing,
+      medical AI</p>
+    <span class="small-break"></span>
+    <div class="research-links">
+      <a href="https://github.com/joze-Lee/retina-risk-ai" target="_blank" rel="noopener noreferrer">Check out my
+        Research</a>
+    </div>
+  </section>
+  <!-- Projects Section -->
+  <section id="projects">
     <div class="parallax-bg"></div>
     <h2 class="heading">Selected Projects</h2>
     <!-- <p class="content">"podaaa"</p> -->
-    
+
     <div class="projects-container" role="list">
-      <a href="https://github.com/joze-Lee/Athena" target="_blank" rel="noopener noreferrer" class="project-card" role="listitem" tabindex="0" aria-label="Project 1: Awesome Portfolio Website">
+      <a href="https://github.com/joze-Lee/Athena" target="_blank" rel="noopener noreferrer" class="project-card"
+        role="listitem" tabindex="0" aria-label="Project 1: Awesome Portfolio Website">
         <div class="project-title">Project Athena </div>
         <div class="project-desc"> AI-Powered Research Assistant for Scholars</div>
       </a>
-      <a href="https://github.com/joze-Lee/retina-risk-ai" target="_blank" rel="noopener noreferrer" class="project-card" role="listitem" tabindex="0" aria-label="Project 2: Real-Time Chat App">
+      <a href="https://github.com/joze-Lee/retina-risk-ai" target="_blank" rel="noopener noreferrer"
+        class="project-card" role="listitem" tabindex="0" aria-label="Project 2: Real-Time Chat App">
         <div class="project-title">Diabetic retinopathy</div>
         <div class="project-desc">AI-driven retinal disease detection leveraging advanced preprocessing</div>
       </a>
-      <a href="https://github.com/joze-Lee/amazon-review-ml" target="_blank" rel="noopener noreferrer" class="project-card" role="listitem" tabindex="0" aria-label="Project 3: AI Image Classifier">
+      <a href="https://github.com/joze-Lee/amazon-review-ml" target="_blank" rel="noopener noreferrer"
+        class="project-card" role="listitem" tabindex="0" aria-label="Project 3: AI Image Classifier">
         <div class="project-title">Amazon review ML</div>
         <div class="project-desc">Amazon Review Sentiment Classification using PySpark ML Pipeline</div>
       </a>
-      <a href="https://github.com/joze-Lee/spark-domain-ai-model" target="_blank" rel="noopener noreferrer" class="project-card" role="listitem" tabindex="0" aria-label="Project 3: AI Image Classifier">
+      <a href="https://github.com/joze-Lee/spark-domain-ai-model" target="_blank" rel="noopener noreferrer"
+        class="project-card" role="listitem" tabindex="0" aria-label="Project 3: AI Image Classifier">
         <div class="project-title">Domain AI with Apache Spark</div>
         <div class="project-desc">Domain-specific AI model training using Apache Spark framework..</div>
       </a>
-     
-      
+
+
     </div>
-  
+
   </section>
 
   <section>
@@ -675,114 +789,114 @@
 
     // project card animation:
     const projectCards = document.querySelectorAll('.project-card');
-const directions = [
-  { x: 0, y: -300 },  // from top
-  { x: 600, y: 0 },   // from right
-  { x: 0, y: 300 },   // from bottom
-  { x: -600, y: 0 }   // from left
-];
+    const directions = [
+      { x: 0, y: -300 },  // from top
+      { x: 600, y: 0 },   // from right
+      { x: 0, y: 300 },   // from bottom
+      { x: -600, y: 0 }   // from left
+    ];
 
 
-projectCards.forEach((card, i) => {
-  const from = directions[i % directions.length];
-  
-  gsap.fromTo(card, 
-    { x: from.x, y: from.y, opacity: 0 }, 
-    { 
-      x: 0, 
-      y: 0, 
-      opacity: 1, 
-      duration: 1.2, 
-      delay: i * 0.15,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: card,
-        start: "top 85%",  // Adjust start trigger as needed
-        toggleActions: "play none none reverse"
-      }
+    projectCards.forEach((card, i) => {
+      const from = directions[i % directions.length];
+
+      gsap.fromTo(card,
+        { x: from.x, y: from.y, opacity: 0 },
+        {
+          x: 0,
+          y: 0,
+          opacity: 1,
+          duration: 1.2,
+          delay: i * 0.15,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 85%",  // Adjust start trigger as needed
+            toggleActions: "play none none reverse"
+          }
+        });
     });
-});
 
 
     // GSAP scroll animations for headings and content
     document.querySelectorAll('section').forEach((section, index) => {
-  const heading = section.querySelector('.heading');
-  const content = section.querySelector('.content');
-  const subContents = section.querySelectorAll('.sub-content');
+      const heading = section.querySelector('.heading');
+      const content = section.querySelector('.content');
+      const subContents = section.querySelectorAll('.sub-content');
 
-  const directions = ["x", "y", "x", "y", "x", "y"];
-  const values = [150, 100, -150, -100, 150, 100];
+      const directions = ["x", "y", "x", "y", "x", "y"];
+      const values = [150, 100, -150, -100, 150, 100];
 
-  // Animate heading
-  gsap.fromTo(heading, {
-    [directions[index % directions.length]]: values[index % values.length],
-    opacity: 0
-  }, {
-    [directions[index % directions.length]]: 0,
-    opacity: 1,
-    duration: 1.2,
-    ease: "power2.out",
-    scrollTrigger: {
-      trigger: section,
-      start: "top 75%",
-      toggleActions: "play none none reverse"
-    }
-  });
+      // Animate heading
+      gsap.fromTo(heading, {
+        [directions[index % directions.length]]: values[index % values.length],
+        opacity: 0
+      }, {
+        [directions[index % directions.length]]: 0,
+        opacity: 1,
+        duration: 1.2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: section,
+          start: "top 75%",
+          toggleActions: "play none none reverse"
+        }
+      });
 
-  // Animate content
-  gsap.fromTo(content, {
-    y: 80,
-    opacity: 0
-  }, {
-    y: 0,
-    opacity: 1,
-    duration: 1,
-    delay: 0.4,
-    ease: "power3.out",
-    scrollTrigger: {
-      trigger: section,
-      start: "top 65%",
-      toggleActions: "play none none reverse"
-    }
-  });
+      // Animate content
+      gsap.fromTo(content, {
+        y: 80,
+        opacity: 0
+      }, {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        delay: 0.4,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: section,
+          start: "top 65%",
+          toggleActions: "play none none reverse"
+        }
+      });
 
-  // Animate multiple sub-contents differently
-  subContents.forEach((subContent, i) => {
-    // For first sub-content: from left to right (x: -50 to 0)
-    // For second sub-content: from right to left (x: 50 to 0)
-    const fromX = i % 2 === 0 ? -50 : 50;
+      // Animate multiple sub-contents differently
+      subContents.forEach((subContent, i) => {
+        // For first sub-content: from left to right (x: -50 to 0)
+        // For second sub-content: from right to left (x: 50 to 0)
+        const fromX = i % 2 === 0 ? -50 : 50;
 
-    gsap.fromTo(subContent, {
-      x: fromX,
-      opacity: 0
-    }, {
-      x: 0,
-      opacity: 1,
-      duration: 1,
-      delay: 0.8 + i * 0.3, // stagger the delay a bit for each sub-content
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: section,
-        start: "top 60%",
-        toggleActions: "play none none reverse"
-      }
+        gsap.fromTo(subContent, {
+          x: fromX,
+          opacity: 0
+        }, {
+          x: 0,
+          opacity: 1,
+          duration: 1,
+          delay: 0.8 + i * 0.3, // stagger the delay a bit for each sub-content
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 60%",
+            toggleActions: "play none none reverse"
+          }
+        });
+      });
     });
-  });
-});
-gsap.fromTo(".contact-links a", 
-  { y: 50, opacity: 0 }, 
-  { 
-    y: 0, 
-    opacity: 1, 
-    duration: 1, 
-    stagger: 0.2, 
-    ease: "power3.in", 
-    scrollTrigger: {
-      trigger: ".contact-links",
-      start: "top 80%",
-      toggleActions: "play none none reverse"
-    }
-  });
+    gsap.fromTo(".contact-links a",
+      { y: 50, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        stagger: 0.2,
+        ease: "power3.in",
+        scrollTrigger: {
+          trigger: ".contact-links",
+          start: "top 80%",
+          toggleActions: "play none none reverse"
+        }
+      });
 
 
 
@@ -810,7 +924,7 @@ gsap.fromTo(".contact-links a",
     });
   </script>
 
-  
+
 </body>
 
 </html>
