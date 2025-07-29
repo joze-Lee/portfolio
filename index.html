@@ -28,7 +28,10 @@
       background-color: var(--bg);
       color: var(--text);
       /* overflow-x: hidden; */
+      overflow-x: hidden;
+      overflow-y: auto;
       min-height: 100vh;
+      height: auto;
       /* height: 100%;  */
       /* scroll-snap-type: y mandatory;  */
     }
@@ -104,6 +107,7 @@
       padding-top: 100px;
 
       position: relative;
+
       width: 100vw;
       /* height: 100vh; */
       min-height: 100vh;
@@ -121,6 +125,7 @@
 
 
     .parallax-bg {
+      pointer-events: none;
       position: absolute;
       top: -10%;
       left: -10%;
@@ -305,9 +310,16 @@
       background-clip: border-box;
     }
 
+    .content-about,
+    .heading {
+      position: relative;
+      z-index: 1;
+    }
+
     /* Headings */
     h1.heading,
     h2.heading {
+
       font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
       font-weight: 600;
       letter-spacing: -0.5px;
@@ -417,8 +429,8 @@
     }
 
 
-    
-     .research-links a {
+
+    .research-links a {
 
       font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
       font-weight: 600;
@@ -437,7 +449,7 @@
       -webkit-text-fill-color: unset;
       /* text-fill-color: unset; */
       /* transition: color 0.3s ease; */
-      
+
       transition: transform 0.3s ease;
     }
 
@@ -453,9 +465,9 @@
       background-color: none;
       border: none;
 
-    } */
+    }
 
-    .small-break {
+    */ .small-break {
       display: block;
       margin-top: 7px;
       /* Adjust as needed */
@@ -516,10 +528,10 @@
       color: var(--card-text);
       border-color: transparent
     }
- 
+
 
     #mode-toggle:hover {
-    
+
       /* background: var(--link-hover); */
       color: var(--card-hover-text);
       transform: scale(1.05);
@@ -698,7 +710,7 @@
       and deep learning, with expertise in building LLM-based solutions, RAG pipelines, and intelligent AI agents using
       PyTorch and Hugging Face frameworks for real-world, impactful problem solving.
     </p>
-    
+
     <p class="content-about">
       I’m the creator of <strong class="sub-content">ATHENA</strong>, an AI-powered research assistant that enables
       users to choose from multiple models, including Mistral-7B, Zephyr-7b-beta, Mistral Q4, and
@@ -706,7 +718,7 @@
       efficient and targeted model adaptation. It combines PDF parsing, vector search via FAISS, and context-aware Q&A
       through RAG workflows, delivering real-time, optimized performance.
     </p>
-    
+
     <p class="content-about">
       I’ve deployed Athena and other LLM pipelines to production on AWS, embedding robust MLOps practices with
       CI/CD pipelines using Docker, GitHub Actions, and other tools. I thrive in fast-paced, startup-like environments,
@@ -970,7 +982,7 @@
           toggleActions: "play none none reverse"
         }
       });
-      gsap.fromTo(".research-links a",
+    gsap.fromTo(".research-links a",
       { y: 50, opacity: 0 },
       {
         y: 0,
