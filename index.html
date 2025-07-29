@@ -548,49 +548,79 @@
     /* Responsive tweaks */
     @media (max-width: 768px) {
 
-      h1.heading,
-      h2.heading {
-        margin-top: 2rem;
-        font-size: clamp(1.8rem, 6vw, 2.4rem);
-      }
+      /* .content-about {
+        font-size: 0.95rem;
+        margin-bottom: 2.5rem;
+       
+    }
+*/
+   
 
-      p.sub-content {
-        font-size: clamp(0.8rem, 3vw, 1rem);
-        text-align: justify;
-      }
+    section {
+      padding-bottom: 6rem;
+    }
 
-      p.content-about {
-        font-size: clamp(0.8rem, 3vw, 1rem);
-        text-align: justify;
-      }
+    h1.heading,
+    h2.heading {
+      margin-top: 2rem;
+      font-size: clamp(1.8rem, 6vw, 2.4rem);
+    }
 
-      p.content {
-        font-size: clamp(0.8rem, 3vw, 1rem);
-        text-align: justify;
-        max-width: 90vw;
-      }
+    p.sub-content {
+      font-size: clamp(0.8rem, 3vw, 1rem);
+      text-align: justify;
+    }
 
-      .blob {
-        width: 300px;
-        height: 300px;
-      }
+    p.content-about {
+      font-size: clamp(0.8rem, 3vw, 1rem);
+      text-align: justify;
+      /* font-size: 0.95rem; */
+      margin-bottom: 2.5rem;
+    }
 
-      .projects-container {
-        max-width: 100%;
-        gap: 1rem;
-      }
+    p.content {
+      font-size: clamp(0.8rem, 3vw, 1rem);
+      text-align: justify;
+      max-width: 90vw;
+    }
 
-      .project-card {
-        width: 90vw;
-        /* padding: 1rem 1.2rem; */
-      }
+    .parallax-bg {
+      transform: translateZ(-1px) scale(1.4);
+    }
+
+
+    .blob {
+      width: 300px;
+      height: 300px;
+    }
+
+    .projects-container {
+      max-width: 100%;
+      gap: 1rem;
+    }
+
+
+    .project-card {
+      width: 90vw;
+      /* padding: 1rem 1.2rem; */
+    }
 
     }
 
     @media (max-width: 480px) {
 
+      .parallax-bg {
+        transform: translateZ(-1px) scale(1.4);
+        /* 👈 smaller scale on mobile */
+      }
+      section {
+      padding-bottom: 6rem;
+      /* 👈 This is critical for the last paragraph */
+    }
+
       h1.heading,
       h2.heading {
+        margin-top: 2rem;
         font-size: clamp(1.6rem, 7vw, 2.2rem);
       }
 
@@ -602,6 +632,7 @@
       p.content-about {
         font-size: clamp(0.8rem, 3vw, 1rem);
         text-align: justify;
+        margin-bottom: 2.5rem;
       }
 
 
