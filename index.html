@@ -49,9 +49,9 @@
           /* Violet/Purple */
           #ff2d55,
           /* Hot Pink */
-          #ff3b30,
+          #ff3b30
           /* Reddish */
-          #ff9500
+          /* #ff9500 */
           /* Orange */
         );
 
@@ -112,7 +112,10 @@
       justify-content: center;
       align-items: center;
       overflow: hidden;
-      padding: 0 1rem;
+      padding: 4rem 2rem 6rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      /* padding: 0 1rem; */
       text-align: center;
     }
 
@@ -167,20 +170,6 @@
 
     .project-card:hover,
     .project-card:focus {
-      /* background: linear-gradient(90deg,
-          rgba(0, 122, 255, 1),
-          /* #007aff */
-          /* rgba(88, 86, 214, 1), */
-          /* #5856d6 */
-          /* rgba(175, 82, 222, 0.7), */
-          /* #af52de */
-          /* rgba(255, 45, 85, 1), */
-          /* #ff2d55 */
-          /* rgba(255, 59, 48, 1) */
-          /* #ff3b30 */
-          /* rgba(255, 149, 0, 0.5) */
-          /* #ff9500 */
-        /* );  */
       color: var(--card-hover-text);
       transform: scale(1.05);
       box-shadow:
@@ -194,24 +183,7 @@
       outline: none;
     }
 
-
-    /* .project-card:hover,
-    .project-card:focus {
-      background: linear-gradient(90deg, var(--heading-gradient-start), var(--heading-gradient-end));
-
-      color: var(--card-hover-text);
-      transform: scale(1.05);
-      box-shadow: 0 0 20px var(--card-hover-gradient);
-      outline: none;
-    } */
-
     .project-title {
-      /* background: linear-gradient(90deg, var(--heading-gradient-start), var(--heading-gradient-end));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent; */
-      /* background : linear-gradient(90deg, var(--heading-gradient-end), var(--heading-gradient-start));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent; */
       background: var(--heading-gradient);
       background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -333,15 +305,6 @@
       background-clip: border-box;
     }
 
-
-
-
-    /* h1 {
-  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-  font-weight: 600;
-  letter-spacing: -0.5px;
-} */
-
     /* Headings */
     h1.heading,
     h2.heading {
@@ -366,18 +329,6 @@
     h2.heading:hover {
       transform: scale(1.05);
       filter: drop-shadow(0 0 2.5px #af52de);
-      /* #007aff,
-         
-          ,
-         
-          ,
-         
-          #ff2d55,
-         
-          #ff3b30,
-         
-          #ff9500 */
-
     }
 
     .sub-content {
@@ -394,7 +345,7 @@
       color: transparent;
       line-height: 1.6;
       user-select: text;
-      text-align: center;
+      text-align: justify;
     }
 
     p.content {
@@ -406,11 +357,11 @@
       color: var(--content-color);
       line-height: 1.6;
       user-select: text;
-      text-align: center;
+      text-align: justify;
     }
 
     .project-desc {
-      font-weight: 400;
+      font-weight: 600;
       font-size: clamp(1rem, 2vw, 1.3rem);
       flex-grow: 1;
       line-height: 1.6;
@@ -425,8 +376,10 @@
       color: var(--content-color);
       line-height: 1.6;
       user-select: text;
-      text-align: center;
+      text-align: justify;
     }
+
+
 
     /* Links in last section styled as buttons */
     .contact-links a {
@@ -441,54 +394,56 @@
       border-radius: 30px;
       background: none;
       cursor: pointer;
-
+      display: inline-block;
       /* No gradient in normal state */
       background-clip: unset;
       -webkit-background-clip: unset;
       -webkit-text-fill-color: unset;
       /* text-fill-color: unset; */
-      transition: color 0.3s ease;
+      /* transition: color 0.3s ease; */
+      /* transition: all 0.3s ease; */
+      transition: transform 0.3s ease;
+
     }
 
-    .contact-links a:hover {
-      /* Gradient text on hover */
-      background: var(--card-hover-gradient);
+    .contact-links a:hover,
+    .contact-links a:focus {
+      background: var(--heading-gradient);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
-      /* text-fill-color: transparent; */
       color: unset;
-      box-shadow: none;
-      background-color: none;
-      border: none;
+      transform: scale(2.8);
     }
 
 
-    .research-links a {
+    
+     .research-links a {
 
       font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
       font-weight: 600;
       letter-spacing: 0.5px;
       color: var(--text);
       text-decoration: none;
-      font-weight: 600;
       padding: 0.4rem 1rem;
       border: none;
       border-radius: 30px;
       background: none;
       cursor: pointer;
-
+      display: inline-block;
       /* No gradient in normal state */
       background-clip: unset;
       -webkit-background-clip: unset;
       -webkit-text-fill-color: unset;
       /* text-fill-color: unset; */
-      transition: color 0.3s ease;
+      /* transition: color 0.3s ease; */
+      
+      transition: transform 0.3s ease;
     }
 
     .research-links a:hover {
       /* Gradient text on hover */
-      background: var(--card-hover-gradient);
+      background: var(--heading-gradient);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -498,9 +453,7 @@
       background-color: none;
       border: none;
 
-
-
-    }
+    } */
 
     .small-break {
       display: block;
@@ -520,6 +473,25 @@
       z-index: 0;
     }
 
+    .project-card {
+      font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: 0 0 8px #0008;
+      padding: 1.5rem 2rem;
+      width: 280px;
+      color: var(--card-text);
+      cursor: pointer;
+      text-align: left;
+      transition: background-color 0.9s ease, color 0.9s ease, transform 0.9s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none;
+    }
+
     /* Dark/light toggle button */
     #mode-toggle {
       font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
@@ -528,10 +500,10 @@
       position: fixed;
       top: 0.5rem;
       right: 1rem;
-      /* background: transparent; */
+      background-color: var(--card-bg);
       border: 2px solid var(--card-hover-gradient);
       /* color: var(--content-color); */
-
+      /* box-shadow: 0 0 8px #0008; */
       padding: 0.5rem 1rem;
       border-radius: 30px;
       cursor: pointer;
@@ -539,15 +511,26 @@
       transition: background-color 0.3s ease, color 0.3s ease;
       z-index: 10;
       /* background: var(--card-hover-gradient); */
-      background: linear-gradient(90deg, var(--heading-gradient-start), var(--heading-gradient-end));
-      color: #fff;
+      /* background: linear-gradient(90deg, var(--heading-gradient-start), var(--heading-gradient-end)); */
+      /* kundi */
+      color: var(--card-text);
       border-color: transparent
     }
+ 
 
     #mode-toggle:hover {
-      background: var(--link-hover);
-      color: #fff;
-      border-color: var(--link-hover);
+    
+      /* background: var(--link-hover); */
+      color: var(--card-hover-text);
+      transform: scale(1.05);
+      box-shadow:
+        0 0 5px rgba(0, 122, 255, 1),
+        0 0 5px rgba(88, 86, 214, 1),
+        0 0 5px rgba(175, 82, 222, 1),
+        0 0 5px rgba(255, 45, 85, 1),
+        0 0 5px rgba(255, 59, 48, 1),
+        0 0 5px rgba(255, 149, 0, 1),
+        0 0 5px rgba(255, 59, 48, 1);
     }
 
     /* Responsive tweaks */
@@ -559,8 +542,19 @@
         font-size: clamp(1.8rem, 6vw, 2.4rem);
       }
 
+      p.sub-content {
+        font-size: clamp(0.8rem, 3vw, 1rem);
+        text-align: justify;
+      }
+
+      p.content-about {
+        font-size: clamp(0.8rem, 3vw, 1rem);
+        text-align: justify;
+      }
+
       p.content {
-        font-size: clamp(0.9rem, 3vw, 1.1rem);
+        font-size: clamp(0.8rem, 3vw, 1rem);
+        text-align: justify;
         max-width: 90vw;
       }
 
@@ -588,10 +582,22 @@
         font-size: clamp(1.6rem, 7vw, 2.2rem);
       }
 
+      p.sub-content {
+        font-size: clamp(0.8rem, 3vw, 1rem);
+        text-align: justify;
+      }
+
+      p.content-about {
+        font-size: clamp(0.8rem, 3vw, 1rem);
+
+        text-align: justify;
+      }
 
 
       p.content {
         font-size: clamp(0.8rem, 3vw, 1rem);
+
+        text-align: justify;
       }
 
       p.content-about {
@@ -601,15 +607,18 @@
       .contact-links,
       .research-links {
         flex-direction: column;
+        font-size: clamp(0.8rem, 3vw, 1rem);
       }
 
       .project-card {
         width: 90vw;
+
       }
 
       .project-desc {
         font-size: clamp(0.8rem, 3vw, 1rem);
       }
+
 
 
     }
@@ -688,14 +697,14 @@
       maintainable code. Currently, I’m pursuing a Master’s in AI at the University of East London, where I’ve achieved
       distinction-level scores (91%, 94%) in core modules. My focus is on the practical application of machine learning
       and deep learning, with expertise in building LLM-based solutions, RAG pipelines, and intelligent AI agents using
-      TensorFlow, PyTorch, and Hugging Face frameworks for real-world, impactful problem solving.
+      PyTorch and Hugging Face frameworks for real-world, impactful problem solving.
     </p>
     <br>
     <p class="content-about">
       I’m the creator of <strong class="sub-content">ATHENA</strong>, an AI-powered research assistant that enables
       users to choose from multiple models, including Mistral-7B, Zephyr-7b-beta, Mistral Q4, and
       phi-mini. These models are seamlessly integrated via llama.cpp to harness the full potential of Apple Silicon (M1
-      chip) through Metal Performance Shaders (MPS). Athena also supports GPT fine-tuning with LoRA-SPE, allowing
+      chip) through Metal Performance Shaders. Athena also supports GPT fine-tuning with LoRA, allowing
       efficient and targeted model adaptation. It combines PDF parsing, vector search via FAISS, and context-aware Q&A
       through RAG workflows, delivering real-time, optimized performance.
     </p>
@@ -959,6 +968,20 @@
         ease: "power3.in",
         scrollTrigger: {
           trigger: ".contact-links",
+          start: "top 80%",
+          toggleActions: "play none none reverse"
+        }
+      });
+      gsap.fromTo(".research-links a",
+      { y: 50, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        stagger: 0.2,
+        ease: "power3.in",
+        scrollTrigger: {
+          trigger: ".research-links",
           start: "top 80%",
           toggleActions: "play none none reverse"
         }
