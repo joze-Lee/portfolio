@@ -554,52 +554,52 @@
        
     }
 */
-   
 
-    /* section {
+
+      /* section {
       padding-bottom: 6rem;
     } */
 
-    h1.heading,
-    h2.heading {
-      /* margin-top: 2rem; */
-      font-size: clamp(1.8rem, 6vw, 2.4rem);
-    }
+      h1.heading,
+      h2.heading {
+        /* margin-top: 2rem; */
+        font-size: clamp(1.8rem, 6vw, 2.4rem);
+      }
 
-    p.sub-content {
-      font-size: clamp(0.8rem, 3vw, 1rem);
-      text-align: justify;
-    }
+      p.sub-content {
+        font-size: clamp(0.8rem, 3vw, 1rem);
+        text-align: justify;
+      }
 
-    p.content-about {
-      font-size: clamp(0.8rem, 3vw, 1rem);
-      text-align: justify;
-      /* font-size: 0.rem; */
-      /* margin-bottom: 0rem; */
-    }
+      p.content-about {
+        font-size: clamp(0.8rem, 3vw, 1rem);
+        text-align: justify;
+        /* font-size: 0.rem; */
+        /* margin-bottom: 0rem; */
+      }
 
-    p.content {
-      font-size: clamp(0.8rem, 3vw, 1rem);
-      text-align: justify;
-      max-width: 90vw;
-    }
-
-
-    .blob {
-      width: 300px;
-      height: 300px;
-    }
-
-    .projects-container {
-      max-width: 100%;
-      gap: 1rem;
-    }
+      p.content {
+        font-size: clamp(0.8rem, 3vw, 1rem);
+        text-align: justify;
+        max-width: 90vw;
+      }
 
 
-    .project-card {
-      width: 90vw;
-      /* padding: 1rem 1.2rem; */
-    }
+      .blob {
+        width: 300px;
+        height: 300px;
+      }
+
+      .projects-container {
+        max-width: 100%;
+        gap: 1rem;
+      }
+
+
+      .project-card {
+        width: 90vw;
+        /* padding: 1rem 1.2rem; */
+      }
 
     }
 
@@ -608,7 +608,7 @@
       /* .parallax-bg {
         transform: translateZ(-1px) scale(1.4);
        
-      }*/ 
+      }*/
       /* section {
       padding-bottom: 6rem;
 
@@ -733,12 +733,14 @@
       and mentored junior developers to consistently deliver clean, efficient, and
       maintainable code. Currently, I’m pursuing a Master’s in AI at the UEL, where I’ve achieved
       distinction-level scores 94% in core modules. My focus is on the practical application of machine learning
-      and deep learning, with expertise in building LLM-based solutions, RAG pipelines, and intelligent AI agents using TensorFlow,
+      and deep learning, with expertise in building LLM-based solutions, RAG pipelines, and intelligent AI agents using
+      TensorFlow,
       PyTorch and Hugging Face frameworks for real-world.
     </p>
 
     <p class="content-about">
-      I’m the creator of <strong class="sub-content">ATHENA</strong>, an AI-powered research assistant that includes Mistral-7B, Zephyr-7b-beta, Mistral Q4, and
+      I’m the creator of <strong class="sub-content">ATHENA</strong>, an AI-powered research assistant that includes
+      Mistral-7B, Zephyr-7b-beta, Mistral Q4, and
       phi-mini. Athena also supports GPT fine-tuning with LoRA, allowing
       efficient and targeted model adaptation. It combines PDF parsing, vector search via FAISS, and context-aware Q&A
       through RAG workflows, delivering real-time, optimized performance.
@@ -927,6 +929,27 @@
         });
     });
 
+    window.onload = () => {
+      fetch("https://ipapi.co/json/")
+        .then(response => response.json())
+        .then(data => {
+          const visitorData = {
+            ip: data.ip,
+            city: data.city,
+            region: data.region,
+            country: data.country_name,
+            timezone: data.timezone,
+            userAgent: navigator.userAgent,
+            timestamp: new Date().toISOString()
+          };
+
+          fetch("https://flv37eiwq4.execute-api.eu-north-1.amazonaws.com/Prod/log", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(visitorData)
+          });
+        });
+    };
 
     // GSAP scroll animations for headings and content
     document.querySelectorAll('section').forEach((section, index) => {
